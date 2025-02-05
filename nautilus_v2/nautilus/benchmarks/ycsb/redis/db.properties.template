@@ -1,0 +1,2 @@
+redis.host=__HOST__
+redis.port=6380

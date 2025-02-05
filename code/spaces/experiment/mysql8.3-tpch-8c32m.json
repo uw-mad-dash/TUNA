@@ -1,0 +1,11 @@
+{
+    "shortname": "mysql8.3-tpch-8c32m",
+    "description": "mysql 8.3, TPC-H, 8c32m",
+    "benchmark": "../benchmark/tpch.json",
+    "dbms": "../dbms/mysql-8.3.json",
+    "knobs": "../knobs/mysql-8.3.json",
+    "params": "../params/8c32m.json",
+    "target": "latency",
+    "worst_score": 10000000000,
+    "timeout": 3000
+}

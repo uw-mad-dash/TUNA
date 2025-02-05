@@ -1,0 +1,10 @@
+{
+    "name": "wrk",
+    "workload": "wrk",
+    "warmup_duration": 2,
+    "benchmark_duration": 10,
+    "workload_properties": {
+        "threadcount": 40,
+        "clientcount": 40
+    }
+}

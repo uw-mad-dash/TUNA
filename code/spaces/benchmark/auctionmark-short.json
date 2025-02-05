@@ -1,0 +1,11 @@
+{
+    "name": "benchbase",
+    "workload": "auctionmark",
+    "warmup_duration": 5,
+    "benchmark_duration": 5,
+    "workload_properties": {
+        "scalefactor": 1,
+        "terminals": 40,
+        "work_rate": "unlimited"
+    }
+}

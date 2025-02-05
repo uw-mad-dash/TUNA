@@ -1,0 +1,7 @@
+# Workload properties
+# These will be used for benchmarking (and if defined for warm-up too!)
+# NOTE: it is possible that some workload overides those (i.e. `test_workload')
+
+recordcount=__RECORD_COUNT__
+operationcount=__OPERATION_COUNT__
+threadcount= __THREAD_COUNT__

@@ -1,0 +1,17 @@
+# @package deploy.instance_type
+
+name: local
+
+# Storage-related vars
+disk_device: /dev/sdd
+disk_partition: /dev/sdd
+disk_mount_point: /mnt/ssd
+disk_backup_mount_point: /mnt/ssd/backup
+mem_backup_mount_point: /dev/shm/backup
+
+# Container isolation / restriction vars
+cpuset_cpus_driver: 0-3
+cpuset_cpus_workload: 0-3
+mem_limit_driver: 8G
+mem_limit_workload: 8G
+shm_size_driver: 8G  # typically, >30% of mem limit

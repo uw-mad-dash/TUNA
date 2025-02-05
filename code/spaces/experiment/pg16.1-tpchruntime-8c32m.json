@@ -1,0 +1,11 @@
+{
+    "shortname": "pg16.1-tpch-runtime-8c32m",
+    "description": "postgres 16.1, TPC-H, 8c32m",
+    "benchmark": "../benchmark/tpch.json",
+    "dbms": "../dbms/postgres-16.1.json",
+    "knobs": "../knobs/postgres-16.1.json",
+    "params": "../params/8c32m.json",
+    "target": "runtime",
+    "worst_score": 10000000000,
+    "timeout": 2400
+}

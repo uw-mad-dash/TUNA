@@ -1,0 +1,17 @@
+# @package deploy.instance_type
+
+name: c220g5
+
+# Storage-related vars
+disk_device: /dev/sda
+disk_partition: /dev/sda4
+disk_mount_point: /mnt/ssd
+disk_backup_mount_point: /mnt/ssd/backup
+mem_backup_mount_point: /dev/shm/backup
+
+# Container isolation / restriction vars
+cpuset_cpus_driver: 0-9,20-29
+cpuset_cpus_workload: 10-19,30-39
+mem_limit_driver: 64G
+mem_limit_workload: 64G
+shm_size_driver: 16G  # typically, >30% of mem limit

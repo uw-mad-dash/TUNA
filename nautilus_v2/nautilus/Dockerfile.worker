@@ -1,0 +1,90 @@
+FROM python:3.11.8-bookworm
+WORKDIR /nautilus
+
+RUN apt-get update \
+    && apt-get install -y wget gnupg2 unzip git sed
+
+###################################
+## Docker installation
+###################################
+
+# Instructions from https://docs.docker.com/engine/install/debian/#install-using-the-repository
+RUN apt-get install -y curl ca-certificates \
+    # Add Docker's official GPG key:
+    && install -m 0755 -d /etc/apt/keyrings \
+    && curl -fsSL https://download.docker.com/linux/debian/gpg -o /etc/apt/keyrings/docker.asc \
+    && chmod a+r /etc/apt/keyrings/docker.asc \
+    # Add the repository to Apt sources:
+    && echo \
+        "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/debian \
+        $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | tee /etc/apt/sources.list.d/docker.list > /dev/null \
+    && apt-get update \
+    && VERSION_STRING=5:24.0.9-1~debian.12~bookworm \
+    && apt-get install -y docker-ce=$VERSION_STRING docker-ce-cli=$VERSION_STRING containerd.io docker-buildx-plugin docker-compose-plugin
+
+
+###################################
+## Benchmarks installation
+###################################
+
+# Manually install JDK-21 (required by BenchBase)
+RUN wget -O /tmp/jdk-21.deb https://download.oracle.com/java/21/latest/jdk-21_linux-x64_bin.deb \
+    && dpkg -i /tmp/jdk-21.deb \
+    && rm -f /tmp/jdk-21.deb
+
+# Install wrk (driver for nginx benchmark)
+RUN apt-get install -y wrk
+
+## YCSB installation
+###################################
+
+RUN mkdir -p /benchmark \
+    # JDBC driver (used for PostgreSQL, MySQL, etc.)
+    && wget -O /tmp/ycsb.tar.gz https://github.com/brianfrankcooper/YCSB/releases/download/0.17.0/ycsb-jdbc-binding-0.17.0.tar.gz \
+    && tar -C /tmp -xf /tmp/ycsb.tar.gz \
+    && mv /tmp/ycsb-jdbc-binding-0.17.0 /benchmark/ycsb \
+    && rm -f /tmp/ycsb.tar.gz \
+    ## Apache Cassandra
+    && wget -O /tmp/ycsb.tar.gz https://github.com/brianfrankcooper/YCSB/releases/download/0.17.0/ycsb-cassandra-binding-0.17.0.tar.gz \
+    && tar -C /tmp -xf /tmp/ycsb.tar.gz \
+    && cp -R /tmp/ycsb-cassandra-binding-0.17.0/* /benchmark/ycsb/ \
+    && rm -f /tmp/ycsb.tar.gz \
+    ## redis
+    && wget -O /tmp/ycsb.tar.gz https://github.com/brianfrankcooper/YCSB/releases/download/0.17.0/ycsb-redis-binding-0.17.0.tar.gz \
+    && tar -C /tmp -xf /tmp/ycsb.tar.gz \
+    && cp -R /tmp/ycsb-redis-binding-0.17.0/* /benchmark/ycsb/ \
+    && rm -f /tmp/ycsb.tar.gz
+
+## BenchBase
+###################################
+
+RUN mkdir -p /benchmark \
+    # Clone Github repo
+    && git clone https://github.com/cmu-db/benchbase.git /tmp/benchbase \
+    && cd /tmp/benchbase \
+    # Mar 25, 2024 commit: Bump com.google.cloud:google-cloud-spanner-jdbc from 2.16.0 to 2.16.1 (#492)
+    && git checkout 9837d6749fa7313f47a939339144a4724d531582 \
+    # Build for PostgreSQL
+    && cd /tmp/benchbase && ./mvnw clean package -DskipTests=true -P postgres \
+    && unzip /tmp/benchbase/target/benchbase-postgres.zip -d /benchmark \
+    # Build for MySQL
+    && cd /tmp/benchbase && ./mvnw clean package -DskipTests=true -P mysql \
+    && unzip /tmp/benchbase/target/benchbase-mysql.zip -d /benchmark \
+    # Cleanup
+    && rm -rf /tmp/benchbase
+
+## Celery worker
+###################################
+
+COPY requirements.txt requirements.txt
+RUN pip3 install -r requirements.txt
+
+###################################
+
+# Copy deploy config file
+ADD  deploy-config.yaml .
+
+# Copy workloads required for wrk
+RUN mkdir -p /benchmark/wrk
+COPY benchmarks/wrk/density.csv /benchmark/wrk/density.csv
+COPY benchmarks/wrk/wikipedia.lua /benchmark/wrk/wikipedia.lua

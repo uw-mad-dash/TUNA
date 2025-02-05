@@ -1,0 +1,11 @@
+# @package nautilus
+## This config file holds Nautilus-related vars
+
+disk_backup_mount_point: '/from'
+disk_mount_point: '/to'
+
+workspace_mount_point: /workspace
+
+max_output_chars:
+  stdout: 64_000_000
+  stderr: 64_000_000

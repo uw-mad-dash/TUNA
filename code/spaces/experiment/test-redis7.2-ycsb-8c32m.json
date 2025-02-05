@@ -1,0 +1,11 @@
+{
+    "shortname": "redis-7.2-ycsb-8c32m",
+    "description": "redis 7.2, YCSB, 8c32m",
+    "benchmark": "../benchmark/ycsb-short.json",
+    "dbms": "../dbms/redis-7.2.json",
+    "knobs": "../knobs/redis-7.2.json",
+    "params": "../params/8c32m.json",
+    "target": "throughput",
+    "worst_score": 0,
+    "timeout": 2400
+}

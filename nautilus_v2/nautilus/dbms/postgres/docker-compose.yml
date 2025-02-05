@@ -1,0 +1,25 @@
+version: '2.4'
+services:
+    dbms:
+        image: postgres:${DBMS_VERSION}-bullseye
+        container_name: ${DB_CONTAINER_NAME}
+        cpuset: ${CPUSET_CPUS_WORKLOAD}
+        mem_limit: ${MEM_LIMIT_WORKLOAD}
+        command: postgres -c 'config_file=/etc/postgresql/postgresql.conf'
+        environment:
+            POSTGRES_DB: ${DB_DATABASE}
+            POSTGRES_USER: ${DB_USER}
+            POSTGRES_PASSWORD: ${DB_PASSWORD}
+        volumes:
+            - /opt/nautilus/logs:/log
+            - ${DISK_MOUNT_POINT}/postgres/data:/var/lib/postgresql/data
+            - ${DB_CONF_FILEPATH}:/etc/postgresql/postgresql.conf
+            - ${DB_INIT_DIR}:/docker-entrypoint-initdb.d:ro
+        networks:
+            - deploy_nautilus-dbms-conn
+        security_opt:
+            - seccomp:unconfined
+
+networks:
+    deploy_nautilus-dbms-conn:
+        external: true

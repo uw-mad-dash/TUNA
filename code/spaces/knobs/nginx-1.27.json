@@ -1,0 +1,358 @@
+[
+    {
+        "id": 2,
+        "name": "aio",
+        "type": "enum",
+        "default": "off",
+        "choices": [
+            "on",
+            "off",
+            "threads"
+        ]
+    },
+    {
+        "id": 3,
+        "name": "aio_write",
+        "type": "enum",
+        "default": "off",
+        "choices": [
+            "on",
+            "off"
+        ]
+    },
+    {
+        "id": 8,
+        "name": "client_body_in_file_only",
+        "type": "enum",
+        "default": "off",
+        "choices": [
+            "off",
+            "clean"
+        ],
+        "note": "on removed from options as it is only for debugging"
+    },
+    {
+        "id": 9,
+        "name": "client_body_in_single_buffer",
+        "type": "enum",
+        "default": "off",
+        "choices": [
+            "on",
+            "off"
+        ]
+    },
+    {
+        "id": 11,
+        "name": "client_body_timeout",
+        "type": "integer",
+        "default": 60.0,
+        "min": 1.0,
+        "max": 600.0,
+        "suffix": "s"
+    },
+    {
+        "id": 12,
+        "name": "client_header_buffer_size",
+        "type": "integer",
+        "default": 1024.0,
+        "min": 1.0,
+        "max": 65536.0
+    },
+    {
+        "id": 13,
+        "name": "client_header_timeout",
+        "type": "integer",
+        "default": 60.0,
+        "min": 1.0,
+        "max": 600.0,
+        "suffix": "s"
+    },
+    {
+        "id": 14,
+        "name": "client_max_body_size",
+        "type": "integer",
+        "default": 1024.0,
+        "min": 1,
+        "max": 16384,
+        "note": "disabled check",
+        "suffix": "k",
+        "specialvalues": [
+            0.0
+        ]
+    },
+    {
+        "id": 15,
+        "name": "connection_pool_size",
+        "type": "integer",
+        "default": 512.0,
+        "min": 1.0,
+        "max": 4096.0,
+        "blocksize": 16
+    },
+    {
+        "id": 17,
+        "name": "directio",
+        "type": "integer",
+        "min": 0,
+        "max": 32768,
+        "default": 0,
+        "note": "replace 0 with off",
+        "suffix": "k",
+        "specialvalues": [
+            0
+        ],
+        "dropvalues": [
+            0
+        ]
+    },
+    {
+        "id": 18,
+        "name": "directio_alignment",
+        "type": "integer",
+        "default": 512.0,
+        "min": 512.0,
+        "max": 32768,
+        "blocksize": 512,
+        "note": "should be in steps of 512"
+    },
+    {
+        "id": 30,
+        "name": "large_client_header_buffers number",
+        "type": "integer",
+        "default": 4.0,
+        "min": 1.0,
+        "max": 128.0,
+        "group2": "large_client_header_buffers",
+        "order": 0.0
+    },
+    {
+        "id": 31,
+        "name": "large_client_header_buffers size",
+        "type": "integer",
+        "default": 8.0,
+        "min": 1.0,
+        "max": 16384,
+        "group2": "large_client_header_buffers",
+        "order": 1.0,
+        "suffix": "k"
+    },
+    {
+        "id": 33,
+        "name": "limit_rate",
+        "type": "integer",
+        "default": 0.0,
+        "min": 0.0,
+        "max": 65536.0,
+        "note": "disabled rate limit",
+        "suffix": "m",
+        "specialvalues": [
+            0.0
+        ]
+    },
+    {
+        "id": 34,
+        "name": "limit_rate_after",
+        "type": "integer",
+        "default": 0.0,
+        "min": 0.0,
+        "max": 65536.0,
+        "note": "disabled rate limit",
+        "suffix": "m",
+        "specialvalues": [
+            0.0
+        ]
+    },
+    {
+        "id": 35,
+        "name": "lingering_close",
+        "type": "enum",
+        "default": "on",
+        "choices": [
+            "off",
+            "on",
+            "always"
+        ]
+    },
+    {
+        "id": 36,
+        "name": "lingering_time",
+        "type": "integer",
+        "default": 30.0,
+        "min": 1.0,
+        "max": 300.0
+    },
+    {
+        "id": 37,
+        "name": "lingering_timeout",
+        "type": "integer",
+        "default": 5.0,
+        "min": 1.0,
+        "max": 300.0
+    },
+    {
+        "id": 44,
+        "name": "msie_padding",
+        "type": "enum",
+        "default": "on",
+        "choices": [
+            "on",
+            "off"
+        ]
+    },
+    {
+        "id": 45,
+        "name": "msie_refresh",
+        "type": "enum",
+        "default": "off",
+        "choices": [
+            "on",
+            "off"
+        ]
+    },
+    {
+        "id": 46,
+        "name": "open_file_cache max",
+        "type": "integer",
+        "default": 0.0,
+        "min": 0.0,
+        "max": 16384,
+        "note": "0 disabled the cache",
+        "group2": "open_file_cache",
+        "order": 0.0,
+        "prefix": "max=",
+        "specialvalues": [
+            0
+        ],
+        "dropvalues": [
+            0
+        ]
+    },
+    {
+        "id": 47,
+        "name": "open_file_cache inactive",
+        "type": "integer",
+        "default": 60.0,
+        "min": 1.0,
+        "max": 300.0,
+        "group2": "open_file_cache",
+        "order": 1.0,
+        "prefix": "inactive=",
+        "specialvalues": [
+            0
+        ],
+        "dropvalues": [
+            60
+        ]
+    },
+    {
+        "id": 48,
+        "name": "open_file_cache_errors",
+        "type": "enum",
+        "default": "off",
+        "choices": [
+            "on",
+            "off"
+        ]
+    },
+    {
+        "id": 49,
+        "name": "open_file_cache_min_uses",
+        "type": "integer",
+        "default": 1.0,
+        "min": 0.0,
+        "max": 16384
+    },
+    {
+        "id": 50,
+        "name": "open_file_cache_valid",
+        "type": "integer",
+        "default": 60.0,
+        "min": 1.0,
+        "max": 300.0,
+        "suffix": "s"
+    },
+    {
+        "id": 51,
+        "name": "output_buffers number",
+        "type": "integer",
+        "default": 2.0,
+        "min": 1.0,
+        "max": 128.0,
+        "group2": "output_buffers",
+        "order": 0.0
+    },
+    {
+        "id": 52,
+        "name": "output_buffers size",
+        "type": "integer",
+        "default": 32.0,
+        "min": 1.0,
+        "max": 16384,
+        "group2": "output_buffers",
+        "order": 1.0,
+        "suffix": "k"
+    },
+    {
+        "id": 54,
+        "name": "postpone_output",
+        "type": "integer",
+        "default": 1460.0,
+        "min": 0.0,
+        "max": 65536.0,
+        "note": "disable postponeing",
+        "specialvalues": [
+            0.0
+        ]
+    },
+    {
+        "id": 57,
+        "name": "request_pool_size",
+        "type": "integer",
+        "default": 4.0,
+        "min": 1.0,
+        "max": 64.0,
+        "note": "Allows accurate tuning of per-request memory allocations. This directive has minimal impact on performance and should not generally be used.",
+        "suffix": "k"
+    },
+    {
+        "id": 65,
+        "name": "sendfile",
+        "type": "enum",
+        "default": "off",
+        "choices": [
+            "on",
+            "off"
+        ]
+    },
+    {
+        "id": 72,
+        "name": "server_tokens",
+        "type": "enum",
+        "default": "on",
+        "choices": [
+            "on",
+            "off",
+            "build"
+        ]
+    },
+    {
+        "id": 74,
+        "name": "tcp_nodelay",
+        "type": "enum",
+        "default": "on",
+        "choices": [
+            "on",
+            "off"
+        ]
+    },
+    {
+        "id": 75,
+        "name": "tcp_nopush",
+        "type": "enum",
+        "default": "off",
+        "choices": [
+            "on",
+            "off"
+        ]
+    }
+]

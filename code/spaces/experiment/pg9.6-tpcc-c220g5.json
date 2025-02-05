@@ -1,0 +1,11 @@
+{
+    "shortname": "pg9.6-tpcc-c220g5",
+    "description": "postgres 9.6, TPC-C, c220g5",
+    "benchmark": "../benchmark/tpcc.json",
+    "dbms": "../dbms/postgres-9.6.json",
+    "knobs": "../knobs/postgres-9.6.json",
+    "params": "../params/c220g5.json",
+    "target": "throughput",
+    "worst_score": 0,
+    "timeout": 2400
+}

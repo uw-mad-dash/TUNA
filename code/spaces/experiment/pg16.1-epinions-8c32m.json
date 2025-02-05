@@ -1,0 +1,11 @@
+{
+    "shortname": "pg16.1-epinions-8c32m",
+    "description": "postgres 16.1, epinions, 8c32m",
+    "benchmark": "../benchmark/epinions.json",
+    "dbms": "../dbms/postgres-16.1.json",
+    "knobs": "../knobs/postgres-16.1.json",
+    "params": "../params/8c32m.json",
+    "target": "throughput",
+    "worst_score": 0,
+    "timeout": 2400
+}

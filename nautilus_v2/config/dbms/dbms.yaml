@@ -1,0 +1,8 @@
+# @package dbms
+
+db_name: benchmark
+user: nautilus
+password: verysecretpasswork1@#
+root_password: another_verySecret-Pass4%^
+
+docker_container_name: dbms

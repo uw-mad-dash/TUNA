@@ -1,0 +1,24 @@
+version: '2.4'
+services:
+    dbms:
+        image: mysql:${DBMS_VERSION}
+        container_name: ${DB_CONTAINER_NAME}
+        cpuset: ${CPUSET_CPUS_WORKLOAD}
+        mem_limit: ${MEM_LIMIT_WORKLOAD}
+        environment:
+            MYSQL_DATABASE: ${DB_DATABASE}
+            MYSQL_USER: ${DB_USER}
+            MYSQL_PASSWORD: ${DB_PASSWORD}
+            MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
+        volumes:
+            - ${DISK_MOUNT_POINT}/mysql:/var/lib/mysql
+            - ${DB_CONF_FILEPATH}:/etc/mysql/conf.d/mysql.cnf:ro
+            - ${DB_INIT_DIR}:/docker-entrypoint-initdb.d:ro
+        networks:
+            - deploy_nautilus-dbms-conn
+        security_opt:
+            - seccomp:unconfined
+
+networks:
+    deploy_nautilus-dbms-conn:
+        external: true

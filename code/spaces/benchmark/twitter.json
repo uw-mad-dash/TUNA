@@ -1,0 +1,11 @@
+{
+    "name": "benchbase",
+    "workload": "twitter",
+    "warmup_duration": 30,
+    "benchmark_duration": 300,
+    "workload_properties": {
+        "scalefactor": 1500,
+        "terminals": 40,
+        "work_rate": "unlimited"
+    }
+}

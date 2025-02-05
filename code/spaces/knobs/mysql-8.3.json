@@ -1,0 +1,1596 @@
+[
+    {
+        "id": 1,
+        "name": "back_log",
+        "type": "integer",
+        "default": -1.0,
+        "min": 1.0,
+        "max": 65535.0,
+        "dropvalues": [
+            -1.0
+        ],
+        "specialvalues": [
+            -1.0
+        ]
+    },
+    {
+        "id": 2,
+        "name": "eq_range_index_dive_limit",
+        "type": "integer",
+        "default": 200.0,
+        "min": 1.0,
+        "max": 4294967295.0,
+        "specialvalues": [
+            0.0
+        ]
+    },
+    {
+        "id": 3,
+        "name": "flush",
+        "type": "enum",
+        "default": "OFF",
+        "choices": [
+            "OFF",
+            "ON"
+        ]
+    },
+    {
+        "id": 4,
+        "name": "flush_time",
+        "type": "integer",
+        "default": 0.0,
+        "min": 1.0,
+        "max": "run_duration_seconds",
+        "specialvalues": [
+            0.0
+        ]
+    },
+    {
+        "id": 5,
+        "name": "ft_query_expansion_limit",
+        "type": "integer",
+        "default": 20.0,
+        "min": 0.0,
+        "max": 1000.0
+    },
+    {
+        "id": 6,
+        "name": "histogram_generation_max_mem_size",
+        "type": "integer",
+        "default": 20000000.0,
+        "min": 1000000.0,
+        "max": "memory_size_bytes"
+    },
+    {
+        "id": 7,
+        "name": "host_cache_size",
+        "type": "integer",
+        "default": -1.0,
+        "min": 1.0,
+        "max": 65536.0,
+        "dropvalues": [
+            -1.0
+        ],
+        "specialvalues": [
+            0.0,
+            -1.0
+        ]
+    },
+    {
+        "id": 8,
+        "name": "interactive_timeout",
+        "type": "integer",
+        "default": 28800.0,
+        "min": 1.0,
+        "max": "run_duration_seconds"
+    },
+    {
+        "id": 9,
+        "name": "join_buffer_size",
+        "type": "integer",
+        "default": 262144.0,
+        "min": 1024.0,
+        "max": 1073741824.0,
+        "blocksize": 1024.0
+    },
+    {
+        "id": 10,
+        "name": "large_pages",
+        "type": "enum",
+        "default": "OFF",
+        "choices": [
+            "OFF",
+            "ON"
+        ]
+    },
+    {
+        "id": 11,
+        "name": "long_query_time",
+        "type": "real",
+        "default": 10.0,
+        "min": 0.0,
+        "max": "run_duration_seconds"
+    },
+    {
+        "id": 12,
+        "name": "max_allowed_packet",
+        "type": "integer",
+        "default": 67108864.0,
+        "min": 1024.0,
+        "max": 1073741824.0,
+        "blocksize": 1024.0
+    },
+    {
+        "id": 13,
+        "name": "max_connections",
+        "type": "integer",
+        "default": 151.0,
+        "min": 1.0,
+        "max": 100000.0
+    },
+    {
+        "id": 14,
+        "name": "max_digest_length",
+        "type": "integer",
+        "default": 1024.0,
+        "min": 1.0,
+        "max": 1048576.0,
+        "specialvalues": [
+            0.0
+        ]
+    },
+    {
+        "id": 15,
+        "name": "max_points_in_geometry",
+        "type": "integer",
+        "default": 65536.0,
+        "min": 3.0,
+        "max": 1048576.0
+    },
+    {
+        "id": 16,
+        "name": "max_prepared_stmt_count",
+        "type": "integer",
+        "default": 16382.0,
+        "min": 1.0,
+        "max": 4194304.0,
+        "specialvalues": [
+            0.0
+        ]
+    },
+    {
+        "id": 17,
+        "name": "max_seeks_for_key",
+        "type": "integer",
+        "default": 4294966272.0,
+        "min": 1.0,
+        "max": 4294966272.0,
+        "note": "swithed this to the 32 bit version"
+    },
+    {
+        "id": 18,
+        "name": "max_sort_length",
+        "type": "integer",
+        "default": 1024.0,
+        "min": 4.0,
+        "max": 8388608.0
+    },
+    {
+        "id": 19,
+        "name": "max_sp_recursion_depth",
+        "type": "integer",
+        "default": 0.0,
+        "min": 1.0,
+        "max": 255.0,
+        "specialvalues": [
+            0.0
+        ]
+    },
+    {
+        "id": 20,
+        "name": "max_write_lock_count",
+        "type": "integer",
+        "default": 4294966272.0,
+        "min": 1.0,
+        "max": 4294966272.0,
+        "note": "swithed this to the 32 bit version"
+    },
+    {
+        "id": 21,
+        "name": "min_examined_row_limit",
+        "type": "integer",
+        "default": 0.0,
+        "min": 0.0,
+        "max": 4294966272.0,
+        "note": "swithed this to the 32 bit version"
+    },
+    {
+        "id": 22,
+        "name": "optimizer_prune_level",
+        "type": "integer",
+        "default": 1.0,
+        "min": 0.0,
+        "max": 1.0
+    },
+    {
+        "id": 23,
+        "name": "optimizer_search_depth",
+        "type": "integer",
+        "default": 62.0,
+        "min": 1.0,
+        "max": 62.0,
+        "specialvalues": [
+            0.0
+        ]
+    },
+    {
+        "id": 24,
+        "name": "preload_buffer_size",
+        "type": "integer",
+        "default": 32768.0,
+        "min": 1024.0,
+        "max": 1073741824.0
+    },
+    {
+        "id": 25,
+        "name": "query_alloc_block_size",
+        "type": "integer",
+        "default": 8192.0,
+        "min": 1024.0,
+        "max": 4294966272.0,
+        "blocksize": 1024.0
+    },
+    {
+        "id": 26,
+        "name": "range_alloc_block_size",
+        "type": "integer",
+        "default": 4096.0,
+        "min": 4096.0,
+        "max": "min(memory_size_bytes, 4294966272)",
+        "blocksize": 1024.0
+    },
+    {
+        "id": 27,
+        "name": "range_optimizer_max_mem_size",
+        "type": "integer",
+        "default": 8388608.0,
+        "min": 1.0,
+        "max": "memory_size_bytes",
+        "specialvalues": [
+            0.0
+        ]
+    },
+    {
+        "id": 28,
+        "name": "read_buffer_size",
+        "type": "integer",
+        "default": 131072.0,
+        "min": 8192.0,
+        "max": 2147479552.0,
+        "blocksize": 4096.0
+    },
+    {
+        "id": 29,
+        "name": "read_rnd_buffer_size",
+        "type": "integer",
+        "default": 262144.0,
+        "min": 1.0,
+        "max": 2147483647.0
+    },
+    {
+        "id": 30,
+        "name": "regexp_stack_limit",
+        "type": "integer",
+        "default": 8000000.0,
+        "min": 0.0,
+        "max": 2147483647.0
+    },
+    {
+        "id": 31,
+        "name": "regexp_time_limit",
+        "type": "integer",
+        "default": 32.0,
+        "min": 0.0,
+        "max": 2147483647.0
+    },
+    {
+        "id": 32,
+        "name": "schema_definition_cache",
+        "type": "integer",
+        "default": 256.0,
+        "min": 256.0,
+        "max": 524288.0,
+        "specialvalues": [
+            0.0
+        ]
+    },
+    {
+        "id": 33,
+        "name": "select_into_buffer_size",
+        "type": "integer",
+        "default": 131072.0,
+        "min": 8192.0,
+        "max": 2147479552.0,
+        "blocksize": 4096.0
+    },
+    {
+        "id": 34,
+        "name": "select_into_disk_sync",
+        "type": "enum",
+        "default": "OFF",
+        "choices": [
+            "OFF",
+            "ON"
+        ]
+    },
+    {
+        "id": 35,
+        "name": "select_into_disk_sync_delay",
+        "type": "integer",
+        "default": 0.0,
+        "min": 1.0,
+        "max": 31536000.0,
+        "specialvalues": [
+            0.0
+        ]
+    },
+    {
+        "id": 36,
+        "name": "set_operations_buffer_size",
+        "type": "integer",
+        "default": 262144.0,
+        "min": 16384.0,
+        "max": 1073741824.0
+    },
+    {
+        "id": 37,
+        "name": "sort_buffer_size",
+        "type": "integer",
+        "default": 262144.0,
+        "min": 32768.0,
+        "max": 33554432.0
+    },
+    {
+        "id": 38,
+        "name": "stored_program_cache",
+        "type": "integer",
+        "default": 256.0,
+        "min": 16.0,
+        "max": 524288.0
+    },
+    {
+        "id": 39,
+        "name": "stored_program_definition_cache",
+        "type": "integer",
+        "default": 256.0,
+        "min": 256.0,
+        "max": 524288.0,
+        "specialvalues": [
+            0.0
+        ]
+    },
+    {
+        "id": 40,
+        "name": "table_definition_cache",
+        "type": "integer",
+        "default": -1.0,
+        "min": 400.0,
+        "max": 524288.0,
+        "dropvalues": [
+            -1.0
+        ],
+        "specialvalues": [
+            -1.0
+        ]
+    },
+    {
+        "id": 41,
+        "name": "table_open_cache",
+        "type": "integer",
+        "default": 4000.0,
+        "min": 1.0,
+        "max": 524288.0
+    },
+    {
+        "id": 42,
+        "name": "table_open_cache_instances",
+        "type": "integer",
+        "default": 16.0,
+        "min": 1.0,
+        "max": 64.0
+    },
+    {
+        "id": 43,
+        "name": "tablespace_definition_cache",
+        "type": "integer",
+        "default": 256.0,
+        "min": 256.0,
+        "max": 524288.0,
+        "specialvalues": [
+            0.0
+        ]
+    },
+    {
+        "id": 44,
+        "name": "temptable_max_mmap",
+        "type": "integer",
+        "default": 1073741824.0,
+        "min": 1.0,
+        "max": "memory_size_bytes",
+        "specialvalues": [
+            0.0
+        ]
+    },
+    {
+        "id": 45,
+        "name": "temptable_max_ram",
+        "type": "integer",
+        "default": 1073741824.0,
+        "min": 2097152.0,
+        "max": "memory_size_bytes"
+    },
+    {
+        "id": 46,
+        "name": "thread_cache_size",
+        "type": "integer",
+        "default": -1.0,
+        "min": 1.0,
+        "max": 16384.0,
+        "dropvalues": [
+            -1.0
+        ],
+        "specialvalues": [
+            0.0,
+            -1.0
+        ]
+    },
+    {
+        "id": 47,
+        "name": "thread_stack",
+        "type": "integer",
+        "default": 1048576.0,
+        "min": 131072.0,
+        "max": "memory_size_bytes",
+        "blocksize": 1024.0
+    },
+    {
+        "id": 48,
+        "name": "tmp_table_size",
+        "type": "integer",
+        "default": 16777216.0,
+        "min": 1024.0,
+        "max": "memory_size_bytes"
+    },
+    {
+        "id": 49,
+        "name": "transaction_alloc_block_size",
+        "type": "integer",
+        "default": 8192.0,
+        "min": 1024.0,
+        "max": 131072.0,
+        "blocksize": 1024.0
+    },
+    {
+        "id": 50,
+        "name": "windowing_use_high_precision",
+        "type": "enum",
+        "default": "ON",
+        "choices": [
+            "OFF",
+            "ON"
+        ]
+    },
+    {
+        "id": 51,
+        "name": "innodb_adaptive_flushing",
+        "type": "enum",
+        "default": "ON",
+        "choices": [
+            "OFF",
+            "ON"
+        ]
+    },
+    {
+        "id": 52,
+        "name": "innodb_adaptive_flushing_lwm",
+        "type": "integer",
+        "default": 10.0,
+        "min": 0.0,
+        "max": 70.0
+    },
+    {
+        "id": 53,
+        "name": "innodb_adaptive_hash_index",
+        "type": "enum",
+        "default": "ON",
+        "choices": [
+            "OFF",
+            "ON"
+        ]
+    },
+    {
+        "id": 54,
+        "name": "innodb_adaptive_hash_index_parts",
+        "type": "integer",
+        "default": 8.0,
+        "min": 1.0,
+        "max": 512.0
+    },
+    {
+        "id": 55,
+        "name": "innodb_adaptive_max_sleep_delay",
+        "type": "integer",
+        "default": 150000.0,
+        "min": 1.0,
+        "max": 1000000.0,
+        "specialvalues": [
+            0.0
+        ]
+    },
+    {
+        "id": 56,
+        "name": "innodb_autoextend_increment",
+        "type": "integer",
+        "default": 64.0,
+        "min": 1.0,
+        "max": 1000.0
+    },
+    {
+        "id": 57,
+        "name": "innodb_autoinc_lock_mode",
+        "type": "integer",
+        "default": 2.0,
+        "min": 0.0,
+        "max": 2.0
+    },
+    {
+        "id": 58,
+        "name": "innodb_buffer_pool_chunk_size",
+        "type": "integer",
+        "default": 134217728.0,
+        "min": 1048576.0,
+        "max": "memory_size_bytes",
+        "lessthan": "innodb_buffer_pool_size",
+        "note": "less than should be innodb_buffer_pool_size / innodb_buffer_pool_instances",
+        "blocksize": 1048576.0
+    },
+    {
+        "id": 59,
+        "name": "innodb_buffer_pool_dump_pct",
+        "type": "integer",
+        "default": 25.0,
+        "min": 1.0,
+        "max": 100.0
+    },
+    {
+        "id": 60,
+        "name": "innodb_buffer_pool_instances",
+        "type": "integer",
+        "default": 8.0,
+        "min": 1.0,
+        "max": 64.0
+    },
+    {
+        "id": 61,
+        "name": "innodb_buffer_pool_size",
+        "type": "integer",
+        "default": 1073741824,
+        "min": 1073741824,
+        "max": "min(17179869184, memory_size_bytes)"
+    },
+    {
+        "id": 62,
+        "name": "innodb_change_buffer_max_size",
+        "type": "integer",
+        "default": 25.0,
+        "min": 0.0,
+        "max": 50.0
+    },
+    {
+        "id": 63,
+        "name": "innodb_change_buffering",
+        "type": "enum",
+        "default": "all",
+        "choices": [
+            "none",
+            "inserts",
+            "deletes",
+            "changes",
+            "purges",
+            "all"
+        ]
+    },
+    {
+        "id": 64,
+        "name": "innodb_commit_concurrency",
+        "type": "integer",
+        "default": 0.0,
+        "min": 1.0,
+        "max": 1000.0,
+        "specialvalues": [
+            0.0
+        ]
+    },
+    {
+        "id": 65,
+        "name": "innodb_concurrency_tickets",
+        "type": "integer",
+        "default": 5000.0,
+        "min": 1.0,
+        "max": 4294967295.0
+    },
+    {
+        "id": 66,
+        "name": "innodb_ddl_buffer_size",
+        "type": "integer",
+        "default": 1048576.0,
+        "min": 65536.0,
+        "max": 4294967295.0
+    },
+    {
+        "id": 67,
+        "name": "innodb_ddl_threads",
+        "type": "integer",
+        "default": 4.0,
+        "min": 1.0,
+        "max": 64.0
+    },
+    {
+        "id": 68,
+        "name": "innodb_deadlock_detect",
+        "type": "enum",
+        "default": "ON",
+        "choices": [
+            "OFF",
+            "ON"
+        ]
+    },
+    {
+        "id": 69,
+        "name": "innodb_disable_sort_file_cache",
+        "type": "enum",
+        "default": "OFF",
+        "choices": [
+            "OFF",
+            "ON"
+        ]
+    },
+    {
+        "id": 70,
+        "name": "innodb_doublewrite",
+        "type": "enum",
+        "default": "ON",
+        "choices": [
+            "ON",
+            "OFF",
+            "DETECT_AND_RECOVER",
+            "DETECT_ONLY"
+        ]
+    },
+    {
+        "id": 71,
+        "name": "innodb_doublewrite_batch_size",
+        "type": "integer",
+        "default": 0.0,
+        "min": 0.0,
+        "max": 256.0
+    },
+    {
+        "id": 72,
+        "name": "innodb_doublewrite_files",
+        "type": "integer",
+        "default": 16.0,
+        "min": 2.0,
+        "max": 256.0
+    },
+    {
+        "id": 73,
+        "name": "innodb_doublewrite_pages",
+        "type": "integer",
+        "default": 4.0,
+        "min": 1.0,
+        "max": 512.0,
+        "greaterthan": "innodb_write_io_threads"
+    },
+    {
+        "id": 74,
+        "name": "innodb_extend_and_initialize",
+        "type": "enum",
+        "default": "ON",
+        "choices": [
+            "OFF",
+            "ON"
+        ]
+    },
+    {
+        "id": 75,
+        "name": "innodb_file_per_table",
+        "type": "enum",
+        "default": "ON",
+        "choices": [
+            "OFF",
+            "ON"
+        ]
+    },
+    {
+        "id": 76,
+        "name": "innodb_fill_factor",
+        "type": "integer",
+        "default": 100.0,
+        "min": 10.0,
+        "max": 100.0
+    },
+    {
+        "id": 77,
+        "name": "innodb_flush_log_at_timeout",
+        "type": "integer",
+        "default": 1.0,
+        "min": 1.0,
+        "max": 2700.0
+    },
+    {
+        "id": 78,
+        "name": "innodb_flush_method",
+        "type": "enum",
+        "default": "fsync",
+        "choices": [
+            "fsync",
+            "O_DSYNC",
+            "O_DIRECT"
+        ]
+    },
+    {
+        "id": 79,
+        "name": "innodb_flush_neighbors",
+        "type": "enum",
+        "default": "0",
+        "choices": [
+            "0",
+            "1",
+            "2"
+        ]
+    },
+    {
+        "id": 80,
+        "name": "innodb_flush_sync",
+        "type": "enum",
+        "default": "ON",
+        "choices": [
+            "OFF",
+            "ON"
+        ]
+    },
+    {
+        "id": 81,
+        "name": "innodb_flushing_avg_loops",
+        "type": "integer",
+        "default": 30.0,
+        "min": 1.0,
+        "max": 1000.0
+    },
+    {
+        "id": 82,
+        "name": "innodb_fsync_threshold",
+        "type": "integer",
+        "default": 0.0,
+        "min": 1.0,
+        "max": "memory_size_bytes",
+        "specialvalues": [
+            0.0
+        ]
+    },
+    {
+        "id": 83,
+        "name": "innodb_ft_cache_size",
+        "type": "integer",
+        "default": 8000000.0,
+        "min": 1600000.0,
+        "max": 80000000.0
+    },
+    {
+        "id": 84,
+        "name": "innodb_ft_enable_stopword",
+        "type": "enum",
+        "default": "ON",
+        "choices": [
+            "OFF",
+            "ON"
+        ]
+    },
+    {
+        "id": 85,
+        "name": "innodb_ft_max_token_size",
+        "type": "integer",
+        "default": 84.0,
+        "min": 10.0,
+        "max": 84.0
+    },
+    {
+        "id": 86,
+        "name": "innodb_ft_min_token_size",
+        "type": "integer",
+        "default": 3.0,
+        "min": 0.0,
+        "max": 16.0
+    },
+    {
+        "id": 87,
+        "name": "innodb_ft_num_word_optimize",
+        "type": "integer",
+        "default": 2000.0,
+        "min": 1000.0,
+        "max": 10000.0
+    },
+    {
+        "id": 88,
+        "name": "innodb_ft_result_cache_limit",
+        "type": "integer",
+        "default": 2000000000.0,
+        "min": 1000000.0,
+        "max": 4294967295.0
+    },
+    {
+        "id": 89,
+        "name": "innodb_ft_sort_pll_degree",
+        "type": "integer",
+        "default": 2.0,
+        "min": 1.0,
+        "max": 16.0
+    },
+    {
+        "id": 90,
+        "name": "innodb_ft_total_cache_size",
+        "type": "integer",
+        "default": 640000000.0,
+        "min": 32000000.0,
+        "max": 1600000000.0
+    },
+    {
+        "id": 91,
+        "name": "innodb_idle_flush_pct",
+        "type": "integer",
+        "default": 100.0,
+        "min": 0.0,
+        "max": 100.0
+    },
+    {
+        "id": 92,
+        "name": "innodb_io_capacity",
+        "type": "integer",
+        "default": 200.0,
+        "min": 100.0,
+        "max": 1600.0,
+        "lessthan": "innodb_io_capacity_max"
+    },
+    {
+        "id": 93,
+        "name": "innodb_io_capacity_max",
+        "type": "integer",
+        "default": 2000.0,
+        "min": 100.0,
+        "max": 64000.0
+    },
+    {
+        "id": 94,
+        "name": "innodb_lock_wait_timeout",
+        "type": "integer",
+        "default": 50.0,
+        "min": 1.0,
+        "max": "run_duration_seconds"
+    },
+    {
+        "id": 95,
+        "name": "innodb_log_compressed_pages",
+        "type": "enum",
+        "default": "ON",
+        "choices": [
+            "OFF",
+            "ON"
+        ]
+    },
+    {
+        "id": 96,
+        "name": "innodb_log_spin_cpu_abs_lwm",
+        "type": "integer",
+        "default": 80.0,
+        "min": 0.0,
+        "max": "num_cpus * 100"
+    },
+    {
+        "id": 97,
+        "name": "innodb_log_spin_cpu_pct_hwm",
+        "type": "integer",
+        "default": 50.0,
+        "min": 0.0,
+        "max": 100.0
+    },
+    {
+        "id": 98,
+        "name": "innodb_log_wait_for_flush_spin_hwm",
+        "type": "integer",
+        "default": 400.0,
+        "min": 0.0,
+        "max": "run_duration_seconds * 1000000"
+    },
+    {
+        "id": 99,
+        "name": "innodb_log_write_ahead_size",
+        "type": "integer",
+        "default": 8192.0,
+        "min": 512.0,
+        "max": "page_size"
+    },
+    {
+        "id": 100,
+        "name": "innodb_log_writer_threads",
+        "type": "enum",
+        "default": "ON",
+        "choices": [
+            "OFF",
+            "ON"
+        ]
+    },
+    {
+        "id": 101,
+        "name": "innodb_lru_scan_depth",
+        "type": "integer",
+        "default": 1024.0,
+        "min": 1024.0,
+        "max": 4096.0
+    },
+    {
+        "id": 102,
+        "name": "innodb_max_dirty_pages_pct",
+        "type": "real",
+        "default": 90.0,
+        "min": 0.0,
+        "max": 99.99
+    },
+    {
+        "id": 103,
+        "name": "innodb_max_dirty_pages_pct_lwm",
+        "type": "real",
+        "default": 10.0,
+        "min": 0.0,
+        "max": 75.0,
+        "lessthan": "innodb_max_dirty_pages_pct",
+        "specialvalues": [
+            0.0
+        ]
+    },
+    {
+        "id": 104,
+        "name": "innodb_max_purge_lag",
+        "type": "integer",
+        "default": 0.0,
+        "min": 0.0,
+        "max": 4294967295.0,
+        "specialvalues": [
+            0.0
+        ]
+    },
+    {
+        "id": 105,
+        "name": "innodb_max_purge_lag_delay",
+        "type": "integer",
+        "default": 0.0,
+        "min": 0.0,
+        "max": 10000000.0
+    },
+    {
+        "id": 106,
+        "name": "innodb_max_undo_log_size",
+        "type": "integer",
+        "default": 1073741824.0,
+        "min": 10485760.0,
+        "max": "memory_size_bytes"
+    },
+    {
+        "id": 107,
+        "name": "innodb_old_blocks_pct",
+        "type": "integer",
+        "default": 37.0,
+        "min": 5.0,
+        "max": 95.0
+    },
+    {
+        "id": 108,
+        "name": "innodb_old_blocks_time",
+        "type": "integer",
+        "default": 1000.0,
+        "min": 0.0,
+        "max": "run_duration_seconds * 1000"
+    },
+    {
+        "id": 109,
+        "name": "innodb_online_alter_log_max_size",
+        "type": "integer",
+        "default": 134217728.0,
+        "min": 65536.0,
+        "max": "memory_size_bytes"
+    },
+    {
+        "id": 110,
+        "name": "innodb_open_files",
+        "type": "integer",
+        "default": 10.0,
+        "min": 10.0,
+        "max": 1048576.0,
+        "dropvalues": [
+            -1.0
+        ],
+        "specialvalues": [
+            -1.0
+        ]
+    },
+    {
+        "id": 111,
+        "name": "innodb_page_cleaners",
+        "type": "integer",
+        "default": 4.0,
+        "min": 4.0,
+        "max": 32.0
+    },
+    {
+        "id": 112,
+        "name": "innodb_parallel_read_threads",
+        "type": "integer",
+        "default": 4.0,
+        "min": 1.0,
+        "max": 256.0
+    },
+    {
+        "id": 113,
+        "name": "innodb_purge_batch_size",
+        "type": "integer",
+        "default": 300.0,
+        "min": 1.0,
+        "max": 5000.0
+    },
+    {
+        "id": 114,
+        "name": "innodb_purge_threads",
+        "type": "integer",
+        "default": 4.0,
+        "min": 1.0,
+        "max": 32.0
+    },
+    {
+        "id": 115,
+        "name": "innodb_purge_rseg_truncate_frequency",
+        "type": "integer",
+        "default": 128.0,
+        "min": 1.0,
+        "max": 128.0
+    },
+    {
+        "id": 116,
+        "name": "innodb_random_read_ahead",
+        "type": "enum",
+        "default": "OFF",
+        "choices": [
+            "OFF",
+            "ON"
+        ]
+    },
+    {
+        "id": 117,
+        "name": "innodb_read_ahead_threshold",
+        "type": "integer",
+        "default": 56.0,
+        "min": 1.0,
+        "max": 64.0,
+        "specialvalues": [
+            0.0
+        ]
+    },
+    {
+        "id": 118,
+        "name": "innodb_read_io_threads",
+        "type": "integer",
+        "default": 4.0,
+        "min": 1.0,
+        "max": 32.0
+    },
+    {
+        "id": 119,
+        "name": "innodb_redo_log_capacity",
+        "type": "integer",
+        "default": 104857600.0,
+        "min": 8388608.0,
+        "max": "min(137438953472,memory_size_bytes)"
+    },
+    {
+        "id": 120,
+        "name": "innodb_rollback_on_timeout",
+        "type": "enum",
+        "default": "OFF",
+        "choices": [
+            "OFF",
+            "ON"
+        ]
+    },
+    {
+        "id": 121,
+        "name": "innodb_rollback_segments",
+        "type": "integer",
+        "default": 128.0,
+        "min": 1.0,
+        "max": 128.0
+    },
+    {
+        "id": 122,
+        "name": "innodb_segment_reserve_factor",
+        "type": "real",
+        "default": 12.5,
+        "min": 0.03,
+        "max": 40.0
+    },
+    {
+        "id": 123,
+        "name": "innodb_sort_buffer_size",
+        "type": "integer",
+        "default": 1048576.0,
+        "min": 65536.0,
+        "max": 67108864.0
+    },
+    {
+        "id": 124,
+        "name": "innodb_spin_wait_delay",
+        "type": "integer",
+        "default": 6.0,
+        "min": 1.0,
+        "max": 1000.0,
+        "specialvalues": [
+            0.0
+        ]
+    },
+    {
+        "id": 125,
+        "name": "innodb_spin_wait_pause_multiplier",
+        "type": "integer",
+        "default": 50.0,
+        "min": 1.0,
+        "max": 100.0
+    },
+    {
+        "id": 126,
+        "name": "innodb_stats_include_delete_marked",
+        "type": "enum",
+        "default": "OFF",
+        "choices": [
+            "OFF",
+            "ON"
+        ]
+    },
+    {
+        "id": 127,
+        "name": "innodb_stats_method",
+        "type": "enum",
+        "default": "nulls_equal",
+        "choices": [
+            "nulls_equal",
+            "nulls_unequal",
+            "nulls_ignored"
+        ]
+    },
+    {
+        "id": 128,
+        "name": "innodb_stats_on_metadata",
+        "type": "enum",
+        "default": "OFF",
+        "choices": [
+            "OFF",
+            "ON"
+        ]
+    },
+    {
+        "id": 129,
+        "name": "innodb_stats_persistent",
+        "type": "enum",
+        "default": "ON",
+        "choices": [
+            "OFF",
+            "ON"
+        ]
+    },
+    {
+        "id": 130,
+        "name": "innodb_stats_persistent_sample_pages",
+        "type": "integer",
+        "default": 20.0,
+        "min": 1.0,
+        "max": "db_size / page_size"
+    },
+    {
+        "id": 131,
+        "name": "innodb_stats_transient_sample_pages",
+        "type": "integer",
+        "default": 8.0,
+        "min": 1.0,
+        "max": "db_size / page_size"
+    },
+    {
+        "id": 132,
+        "name": "innodb_sync_array_size",
+        "type": "integer",
+        "default": 1.0,
+        "min": 1.0,
+        "max": 1024.0
+    },
+    {
+        "id": 133,
+        "name": "innodb_sync_spin_loops",
+        "type": "integer",
+        "default": 30.0,
+        "min": 0.0,
+        "max": 50000.0
+    },
+    {
+        "id": 134,
+        "name": "innodb_table_locks",
+        "type": "enum",
+        "default": "ON",
+        "choices": [
+            "OFF",
+            "ON"
+        ]
+    },
+    {
+        "id": 135,
+        "name": "innodb_thread_concurrency",
+        "type": "integer",
+        "default": 0.0,
+        "min": 1.0,
+        "max": 1000.0,
+        "specialvalues": [
+            0.0
+        ]
+    },
+    {
+        "id": 136,
+        "name": "innodb_thread_sleep_delay",
+        "type": "integer",
+        "default": 10000.0,
+        "min": 1.0,
+        "max": 1000000.0,
+        "specialvalues": [
+            0.0
+        ]
+    },
+    {
+        "id": 137,
+        "name": "innodb_undo_log_truncate",
+        "type": "enum",
+        "default": "ON",
+        "choices": [
+            "OFF",
+            "ON"
+        ]
+    },
+    {
+        "id": 138,
+        "name": "innodb_use_fdatasync",
+        "type": "enum",
+        "default": "OFF",
+        "choices": [
+            "OFF",
+            "ON"
+        ]
+    },
+    {
+        "id": 139,
+        "name": "innodb_validate_tablespace_paths",
+        "type": "enum",
+        "default": "ON",
+        "choices": [
+            "OFF",
+            "ON"
+        ]
+    },
+    {
+        "id": 140,
+        "name": "innodb_write_io_threads",
+        "type": "integer",
+        "default": 4.0,
+        "min": 1.0,
+        "max": 32.0
+    },
+    {
+        "id": 141,
+        "name": "index_merge",
+        "type": "enum",
+        "default": "on",
+        "choices": [
+            "off",
+            "on"
+        ],
+        "group": "optimizer_switch"
+    },
+    {
+        "id": 142,
+        "name": "index_merge_union",
+        "type": "enum",
+        "default": "on",
+        "choices": [
+            "off",
+            "on"
+        ],
+        "group": "optimizer_switch"
+    },
+    {
+        "id": 143,
+        "name": "index_merge_sort_union",
+        "type": "enum",
+        "default": "on",
+        "choices": [
+            "off",
+            "on"
+        ],
+        "group": "optimizer_switch"
+    },
+    {
+        "id": 144,
+        "name": "index_merge_intersection",
+        "type": "enum",
+        "default": "on",
+        "choices": [
+            "off",
+            "on"
+        ],
+        "group": "optimizer_switch"
+    },
+    {
+        "id": 145,
+        "name": "engine_condition_pushdown",
+        "type": "enum",
+        "default": "on",
+        "choices": [
+            "off",
+            "on"
+        ],
+        "group": "optimizer_switch"
+    },
+    {
+        "id": 146,
+        "name": "index_condition_pushdown",
+        "type": "enum",
+        "default": "on",
+        "choices": [
+            "off",
+            "on"
+        ],
+        "group": "optimizer_switch"
+    },
+    {
+        "id": 147,
+        "name": "mrr",
+        "type": "enum",
+        "default": "on",
+        "choices": [
+            "off",
+            "on"
+        ],
+        "group": "optimizer_switch"
+    },
+    {
+        "id": 148,
+        "name": "mrr_cost_based",
+        "type": "enum",
+        "default": "on",
+        "choices": [
+            "off",
+            "on"
+        ],
+        "group": "optimizer_switch"
+    },
+    {
+        "id": 149,
+        "name": "block_nested_loop",
+        "type": "enum",
+        "default": "on",
+        "choices": [
+            "off",
+            "on"
+        ],
+        "group": "optimizer_switch"
+    },
+    {
+        "id": 150,
+        "name": "batched_key_access",
+        "type": "enum",
+        "default": "off",
+        "choices": [
+            "off",
+            "on"
+        ],
+        "group": "optimizer_switch"
+    },
+    {
+        "id": 151,
+        "name": "materialization",
+        "type": "enum",
+        "default": "on",
+        "choices": [
+            "off",
+            "on"
+        ],
+        "group": "optimizer_switch"
+    },
+    {
+        "id": 152,
+        "name": "semijoin",
+        "type": "enum",
+        "default": "on",
+        "choices": [
+            "off",
+            "on"
+        ],
+        "group": "optimizer_switch"
+    },
+    {
+        "id": 153,
+        "name": "loosescan",
+        "type": "enum",
+        "default": "on",
+        "choices": [
+            "off",
+            "on"
+        ],
+        "group": "optimizer_switch"
+    },
+    {
+        "id": 154,
+        "name": "firstmatch",
+        "type": "enum",
+        "default": "on",
+        "choices": [
+            "off",
+            "on"
+        ],
+        "group": "optimizer_switch"
+    },
+    {
+        "id": 155,
+        "name": "duplicateweedout",
+        "type": "enum",
+        "default": "on",
+        "choices": [
+            "off",
+            "on"
+        ],
+        "group": "optimizer_switch"
+    },
+    {
+        "id": 156,
+        "name": "subquery_materialization_cost_based",
+        "type": "enum",
+        "default": "on",
+        "choices": [
+            "off",
+            "on"
+        ],
+        "group": "optimizer_switch"
+    },
+    {
+        "id": 157,
+        "name": "use_index_extensions",
+        "type": "enum",
+        "default": "on",
+        "choices": [
+            "off",
+            "on"
+        ],
+        "group": "optimizer_switch"
+    },
+    {
+        "id": 158,
+        "name": "condition_fanout_filter",
+        "type": "enum",
+        "default": "on",
+        "choices": [
+            "off",
+            "on"
+        ],
+        "group": "optimizer_switch"
+    },
+    {
+        "id": 159,
+        "name": "derived_merge",
+        "type": "enum",
+        "default": "on",
+        "choices": [
+            "off",
+            "on"
+        ],
+        "group": "optimizer_switch"
+    },
+    {
+        "id": 160,
+        "name": "use_invisible_indexes",
+        "type": "enum",
+        "default": "off",
+        "choices": [
+            "off",
+            "on"
+        ],
+        "group": "optimizer_switch"
+    },
+    {
+        "id": 161,
+        "name": "skip_scan",
+        "type": "enum",
+        "default": "on",
+        "choices": [
+            "off",
+            "on"
+        ],
+        "group": "optimizer_switch"
+    },
+    {
+        "id": 162,
+        "name": "hash_join",
+        "type": "enum",
+        "default": "on",
+        "choices": [
+            "off",
+            "on"
+        ],
+        "group": "optimizer_switch"
+    },
+    {
+        "id": 163,
+        "name": "subquery_to_derived",
+        "type": "enum",
+        "default": "off",
+        "choices": [
+            "off",
+            "on"
+        ],
+        "group": "optimizer_switch"
+    },
+    {
+        "id": 164,
+        "name": "prefer_ordering_index",
+        "type": "enum",
+        "default": "on",
+        "choices": [
+            "off",
+            "on"
+        ],
+        "group": "optimizer_switch"
+    },
+    {
+        "id": 165,
+        "name": "hypergraph_optimizer",
+        "type": "enum",
+        "default": "off",
+        "choices": [
+            "off",
+            "on"
+        ],
+        "group": "optimizer_switch"
+    },
+    {
+        "id": 166,
+        "name": "derived_condition_pushdown",
+        "type": "enum",
+        "default": "on",
+        "choices": [
+            "off",
+            "on"
+        ],
+        "group": "optimizer_switch"
+    },
+    {
+        "id": 167,
+        "name": "hash_set_operations",
+        "type": "enum",
+        "default": "on",
+        "choices": [
+            "off",
+            "on"
+        ],
+        "group": "optimizer_switch"
+    }
+]

@@ -1,0 +1,383 @@
+[
+    {
+        "id": 2,
+        "name": "lazyfree-lazy-eviction",
+        "type": "enum",
+        "default": "no",
+        "choices": [
+            "no",
+            "yes"
+        ]
+    },
+    {
+        "id": 3,
+        "name": "lazyfree-lazy-expire",
+        "type": "enum",
+        "default": "no",
+        "choices": [
+            "no",
+            "yes"
+        ]
+    },
+    {
+        "id": 4,
+        "name": "lazyfree-lazy-server-del",
+        "type": "enum",
+        "default": "no",
+        "choices": [
+            "no",
+            "yes"
+        ]
+    },
+    {
+        "id": 5,
+        "name": "replica-lazy-flush",
+        "type": "enum",
+        "default": "no",
+        "choices": [
+            "no",
+            "yes"
+        ]
+    },
+    {
+        "id": 6,
+        "name": "lazyfree-lazy-user-del",
+        "type": "enum",
+        "default": "no",
+        "choices": [
+            "no",
+            "yes"
+        ]
+    },
+    {
+        "id": 7,
+        "name": "lazyfree-lazy-user-flush",
+        "type": "enum",
+        "default": "no",
+        "choices": [
+            "no",
+            "yes"
+        ]
+    },
+    {
+        "id": 8,
+        "name": "io-threads",
+        "type": "integer",
+        "default": 4,
+        "min": 1,
+        "max": 64,
+        "note": "there is technically no max, but this is larger than it will probably ever need to be"
+    },
+    {
+        "id": 9,
+        "name": "io-threads-do-reads",
+        "type": "enum",
+        "default": "no",
+        "choices": [
+            "no",
+            "yes"
+        ]
+    },
+    {
+        "id": 10,
+        "name": "appendonly",
+        "type": "enum",
+        "default": "no",
+        "choices": [
+            "no",
+            "yes"
+        ]
+    },
+    {
+        "id": 11,
+        "name": "auto-aof-rewrite-percentage",
+        "type": "integer",
+        "default": 100,
+        "min": 0,
+        "max": 100,
+        "note": "0 disables the log rewrite features",
+        "specialvalues": [
+            0
+        ]
+    },
+    {
+        "id": 12,
+        "name": "auto-aof-rewrite-min-size",
+        "type": "integer",
+        "default": 64,
+        "min": 0,
+        "max": 1024,
+        "suffix": "mb"
+    },
+    {
+        "id": 13,
+        "name": "hash-max-listpack-entries",
+        "type": "integer",
+        "default": 512,
+        "min": 0,
+        "max": 8192
+    },
+    {
+        "id": 14,
+        "name": "hash-max-listpack-value",
+        "type": "integer",
+        "default": 64,
+        "min": 0,
+        "max": 4096
+    },
+    {
+        "id": 15,
+        "name": "list-max-listpack-size",
+        "type": "integer",
+        "default": -2,
+        "min": -5,
+        "max": -1
+    },
+    {
+        "id": 16,
+        "name": "list-compress-depth",
+        "type": "integer",
+        "default": 0,
+        "min": 0,
+        "max": 8,
+        "note": "technically no cap"
+    },
+    {
+        "id": 17,
+        "name": "set-max-intset-entries",
+        "type": "integer",
+        "default": 512,
+        "min": 0,
+        "max": 8192,
+        "note": "max number of entries that a hash can have to be used in this set set to around 10x bigger  amx"
+    },
+    {
+        "id": 18,
+        "name": "set-max-listpack-entries",
+        "type": "integer",
+        "default": 128,
+        "min": 0,
+        "max": 1024,
+        "note": "max number of entries that a hash can have to be used in this set set to around 10x bigger  amx"
+    },
+    {
+        "id": 19,
+        "name": "set-max-listpack-value",
+        "type": "integer",
+        "default": 64,
+        "min": 0,
+        "max": 4096,
+        "note": "max bytes that can be put in the hash, Set a default that is bigger than the keys in ycsb"
+    },
+    {
+        "id": 20,
+        "name": "zset-max-listpack-entries",
+        "type": "integer",
+        "default": 128,
+        "min": 0,
+        "max": 1024,
+        "note": "max number of entries that a hash can have to be used in this set set to around 10x bigger  amx"
+    },
+    {
+        "id": 21,
+        "name": "zset-max-listpack-value",
+        "type": "integer",
+        "default": 64,
+        "min": 0,
+        "max": 4096,
+        "note": "max bytes that can be put in the hash, Set a default that is bigger than the keys in ycsb"
+    },
+    {
+        "id": 22,
+        "name": "hll-sparse-max-bytes",
+        "type": "integer",
+        "default": 3000,
+        "min": 0,
+        "max": 15000
+    },
+    {
+        "id": 23,
+        "name": "stream-node-max-bytes",
+        "type": "integer",
+        "default": 4096,
+        "min": 1,
+        "max": 65536,
+        "note": "max set to 16x default",
+        "specialvalues": [
+            0
+        ]
+    },
+    {
+        "id": 24,
+        "name": "stream-node-max-entries",
+        "type": "integer",
+        "default": 100,
+        "min": 1,
+        "max": 1000,
+        "note": "max set by 10x default",
+        "specialvalues": [
+            0
+        ]
+    },
+    {
+        "id": 25,
+        "name": "activerehashing ",
+        "type": "enum",
+        "default": "yes",
+        "choices": [
+            "no",
+            "yes"
+        ]
+    },
+    {
+        "id": 26,
+        "name": "hz",
+        "type": "integer",
+        "default": 10,
+        "min": 1,
+        "max": 500,
+        "note": "The range is between 1 and 500, however a value over 100 is usually not a good idea. Most users should use the default of 10 and raise this up to  100 only in environments where very low latency is required."
+    },
+    {
+        "id": 27,
+        "name": "dynamic-hz",
+        "type": "enum",
+        "default": "yes",
+        "choices": [
+            "no",
+            "yes"
+        ]
+    },
+    {
+        "id": 28,
+        "name": "aof-rewrite-incremental-fsync",
+        "type": "enum",
+        "default": "yes",
+        "choices": [
+            "no",
+            "yes"
+        ]
+    },
+    {
+        "id": 29,
+        "name": "rdb-save-incremental-fsync",
+        "type": "enum",
+        "default": "yes",
+        "choices": [
+            "no",
+            "yes"
+        ]
+    },
+    {
+        "id": 30,
+        "name": "lfu-log-factor",
+        "type": "integer",
+        "default": 10,
+        "min": 0,
+        "max": 100,
+        "note": "max set to 10x default as this is max demonstarted in config"
+    },
+    {
+        "id": 31,
+        "name": "lfu-decay-time",
+        "type": "integer",
+        "default": 1,
+        "min": 1,
+        "max": 6,
+        "note": "time in min before decay. Using 6 min is longer than the benchmark",
+        "specialvalues": [
+            0
+        ]
+    },
+    {
+        "id": 32,
+        "name": "activedefrag",
+        "type": "enum",
+        "default": "no",
+        "choices": [
+            "no",
+            "yes"
+        ]
+    },
+    {
+        "id": 33,
+        "name": "active-defrag-ignore-bytes",
+        "type": "integer",
+        "default": 100,
+        "min": 0,
+        "max": 10000,
+        "note": "amx set to 100x default",
+        "suffix": "mb"
+    },
+    {
+        "id": 34,
+        "name": "active-defrag-threshold-lower",
+        "type": "integer",
+        "default": 10,
+        "min": 0,
+        "max": 100,
+        "note": "this Is a percent"
+    },
+    {
+        "id": 35,
+        "name": " active-defrag-threshold-upper",
+        "type": "integer",
+        "default": 100,
+        "min": 0,
+        "max": 100,
+        "note": "this Is a percent"
+    },
+    {
+        "id": 36,
+        "name": "active-defrag-cycle-min",
+        "type": "integer",
+        "default": 1,
+        "min": 0,
+        "max": 100,
+        "note": "this Is a percent"
+    },
+    {
+        "id": 37,
+        "name": "active-defrag-cycle-max",
+        "type": "integer",
+        "default": 25,
+        "min": 0,
+        "max": 100,
+        "note": "this Is a percent"
+    },
+    {
+        "id": 38,
+        "name": "active-defrag-max-scan-fields",
+        "type": "integer",
+        "default": 1000,
+        "min": 10,
+        "max": 10000,
+        "note": "no idea if this is reasonable"
+    },
+    {
+        "id": 39,
+        "name": "jemalloc-bg-thread",
+        "type": "enum",
+        "default": "yes",
+        "choices": [
+            "no",
+            "yes"
+        ]
+    },
+    {
+        "id": 40,
+        "name": "maxmemory-policy",
+        "type": "enum",
+        "default": "volatile-lru",
+        "choices": [
+            "volatile-lru",
+            "allkeys-lru",
+            "volatile-lfu",
+            "allkeys-lfu",
+            "volatile-random",
+            "allkeys-random",
+            "volatile-ttl"
+        ],
+        "note": "can't allow no eviction policy (default) becuase it will fill up the disk and crash"
+    }
+]

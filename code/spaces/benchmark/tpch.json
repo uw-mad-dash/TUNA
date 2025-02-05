@@ -1,0 +1,9 @@
+{
+    "name": "benchbase",
+    "workload": "tpch",
+    "workload_properties": {
+        "scalefactor": 2,
+        "terminals": 40,
+        "work_rate": "unlimited"
+    }
+}

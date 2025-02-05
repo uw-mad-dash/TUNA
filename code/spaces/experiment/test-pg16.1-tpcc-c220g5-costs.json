@@ -1,0 +1,11 @@
+{
+    "shortname": "pg16.1-tpccshort-c220g5",
+    "description": "postgres 16.1, TPC-C Short, c220g5",
+    "benchmark": "../benchmark/tpcc-short.json",
+    "dbms": "../dbms/postgres-16.1.json",
+    "knobs": "../knobs/postgres-16.1-costs.json",
+    "params": "../params/c220g5.json",
+    "target": "throughput",
+    "worst_score": 0,
+    "timeout": 2400
+}

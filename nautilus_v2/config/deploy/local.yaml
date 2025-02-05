@@ -1,0 +1,21 @@
+
+head_node_ip_address: ${local_ip:}
+head_node_cluster_port: 1337
+head_node_dashboard_port: 1338
+head_node_remote_port: 50050
+
+workspace_mount_point: /tmp/nautilus-workspace
+
+instance_type:
+  name: local
+
+  # Storage-related vars
+  disk_mount_point: /tmp/nautilus
+  disk_backup_mount_point: /tmp/nautilus-backup
+  mem_backup_mount_point: /dev/shm/backup
+
+  # Container isolation / restriction vars
+  cpuset_cpus_driver: 0-3
+  cpuset_cpus_workload: 4-7
+  mem_limit_driver: 8G
+  mem_limit_workload: 8G

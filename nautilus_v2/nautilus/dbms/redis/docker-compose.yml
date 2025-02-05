@@ -1,0 +1,20 @@
+version: '2.4'
+services:
+    dbms:
+        image: redis:${DBMS_VERSION}
+        container_name: ${DB_CONTAINER_NAME}
+        cpuset: ${CPUSET_CPUS_WORKLOAD}
+        mem_limit: ${MEM_LIMIT_WORKLOAD}
+        command: redis-server /usr/local/etc/redis/redis.conf
+        volumes:
+            - ${DISK_MOUNT_POINT}/redis/data:/data
+            - ${DB_CONF_FILEPATH}:/usr/local/etc/redis/redis.conf
+            - ${DB_INIT_DIR}:/docker-entrypoint-initdb.d:ro
+        networks:
+            - deploy_nautilus-dbms-conn
+        security_opt:
+            - seccomp:unconfined
+
+networks:
+    deploy_nautilus-dbms-conn:
+        external: true

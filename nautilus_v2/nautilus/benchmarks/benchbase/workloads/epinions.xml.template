@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<parameters>
+
+  <!-- DB connection settings -->
+  <type>__DB_TYPE__</type>
+  <driver>__DB_JDBC_DRIVER__</driver>
+  <url>jdbc:__DB_JDBC_SUBPROTOCOL__://__HOST__:__PORT__/__DB_NAME____URL_SUFFIX__</url>
+  <DBName>__DB_NAME__</DBName>
+  <username>__DB_USER__</username>
+  <password>__DB_PASSWORD__</password>
+  <isolation>__CONN_ISOLATION_LEVEL__</isolation>
+
+  <!-- Benchmark properties -->
+  <!-- Scalefactor in Epinions scales by *2000 the number of users-->
+  <!--<scalefactor>1</scalefactor>-->
+  <scalefactor>__SCALE_FACTOR__</scalefactor>
+  <terminals>__TERMINALS__</terminals>
+  <batchsize>__BATCH_SIZE__</batchsize>
+  <works>
+    <work>
+      <warmup>__WARMUP_DURATION__</warmup>
+      <time>__BENCHMARK_DURATION__</time>
+      <rate>__RATE__</rate>
+        <weights>10,10,10,10,10,10,10,10,20</weights>
+    </work>
+  </works>
+
+  <!-- Epinions Procedures Declaration -->
+  <transactiontypes>
+      <transactiontype>
+          <name>GetReviewItemById</name>
+      </transactiontype>
+      <transactiontype>
+          <name>GetReviewsByUser</name>
+      </transactiontype>
+      <transactiontype>
+          <name>GetAverageRatingByTrustedUser</name>
+      </transactiontype>
+      <transactiontype>
+          <name>GetItemAverageRating</name>
+      </transactiontype>
+      <transactiontype>
+          <name>GetItemReviewsByTrustedUser</name>
+      </transactiontype>
+      <transactiontype>
+          <name>UpdateUserName</name>
+      </transactiontype>
+      <transactiontype>
+          <name>UpdateItemTitle</name>
+      </transactiontype>
+      <transactiontype>
+          <name>UpdateReviewRating</name>
+      </transactiontype>
+      <transactiontype>
+          <name>UpdateTrustRating</name>
+      </transactiontype>
+  </transactiontypes>
+
+</parameters>

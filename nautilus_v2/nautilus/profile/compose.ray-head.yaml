@@ -1,0 +1,9 @@
+version: '2.4'
+
+services:
+    worker:
+        command: ray start --head --dashboard-host=0.0.0.0 --num-cpus=1 --block ; tail -f /dev/null
+        ports:
+            - '${HEAD_NODE_CLUSTER_PORT}:6379'      # ray cluster endpoint
+            - '${HEAD_NODE_DASHBOARD_PORT}:8265'    # ray dashboard
+            - '${HEAD_NODE_REMOTE_PORT}:10001'      # ray remote port

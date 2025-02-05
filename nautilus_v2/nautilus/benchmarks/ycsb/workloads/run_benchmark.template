@@ -1,0 +1,9 @@
+# Limit execution time
+maxexecutiontime=__BENCHMARK_DURATION__
+
+# Capture every request
+# measurementtype=hdrhistogram 
+hdrhistogram.percentiles = 50,95,99
+
+# measurementtype=raw
+# measurement.raw.output_file=__RAW_MEASUREMENTS_FILEPATH__

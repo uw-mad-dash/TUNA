@@ -1,0 +1,57 @@
+dbms:
+  db_name: benchmark
+  docker_container_name: dbms
+  password: verysecretpasswork1@#
+  root_password: another_verySecret-Pass4%^
+  user: nautilus
+deploy:
+  head_node_cluster_port: 1337
+  head_node_dashboard_port: 1338
+  head_node_ip_address: ''
+  head_node_remote_port: 50050
+  instance_type:
+    cpuset_cpus_driver: 0-3
+    cpuset_cpus_workload: 0-3
+    disk_backup_mount_point: /mnt/ssd/backup
+    disk_device: /dev/sdd
+    disk_mount_point: /mnt/ssd
+    disk_partition: /dev/sdd
+    mem_backup_mount_point: /dev/shm/backup
+    mem_limit_driver: 8G
+    mem_limit_workload: 8G
+    name: local
+    shm_size_driver: 8G
+  netifaces_pref:
+  - ens1f0
+  - eno1
+  - enp1s0f0
+  workspace_mount_point: /tmp/nautilus-workspace
+env:
+  CPUSET_CPUS_DRIVER: 0-3
+  CPUSET_CPUS_WORKLOAD: 0-3
+  DB_CONTAINER_NAME: dbms
+  DB_DATABASE: benchmark
+  DB_PASSWORD: verysecretpasswork1@#
+  DB_ROOT_PASSWORD: another_verySecret-Pass4%^
+  DB_USER: nautilus
+  DISK_BACKUP_MOUNT_POINT: /mnt/ssd/backup
+  DISK_MOUNT_POINT: /mnt/ssd
+  HEAD_NODE_CLUSTER_PORT: 1337
+  HEAD_NODE_DASHBOARD_PORT: 1338
+  HEAD_NODE_IP_ADDRESS: ''
+  HEAD_NODE_REMOTE_PORT: 50050
+  LOCAL_DISK_BACKUP_MOUNT_POINT: /from
+  LOCAL_DISK_MOUNT_POINT: /to
+  LOCAL_WORKSPACE_MOUNT_POINT: /workspace
+  MEM_BACKUP_MOUNT_POINT: /dev/shm/backup
+  MEM_LIMIT_DRIVER: 8G
+  MEM_LIMIT_WORKLOAD: 8G
+  SHM_SIZE_DRIVER: 8G
+  WORKSPACE_MOUNT_POINT: /tmp/nautilus-workspace
+nautilus:
+  disk_backup_mount_point: /from
+  disk_mount_point: /to
+  max_output_chars:
+    stderr: 64000000
+    stdout: 64000000
+  workspace_mount_point: /workspace

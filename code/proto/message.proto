@@ -1,0 +1,52 @@
+syntax = "proto3";
+
+package distributedtraining;
+
+enum LossFunction {
+  LOSS_UNSPECIFIED = 0;
+  LOSS_L1 = 1;
+  LOSS_L2 = 2;
+  LOSS_L1_Level = 3;
+  LOSS_L2_Level = 4;
+}
+
+// A distributed worker that evaluates configurations
+service DistributedWorker {
+  // Provides a configuration to evaluate
+  rpc EvaluateConfig (Config) returns (Performanace) {}
+  rpc CollectQueries (Config) returns (Empty) {}
+  rpc EvaluateLoss (LossConfig) returns (Loss) {}
+  rpc Ping(Empty) returns (Empty) {}
+}
+
+// The request message containing the key
+message Config {
+  string dbms_info = 1;
+  string benchmark_info=2;
+  bool metrics = 3;
+  bool benchmarks = 4;
+}
+
+message LossConfig {
+  string dbms_info = 1;
+  string benchmark_info = 2;
+  LossFunction loss = 3;
+}
+
+// A response message containing the performance on the node
+message Performanace {
+  float throughput = 1;
+  float goodput = 2;
+  float latencyp50 = 3;
+  float latencyp95 = 4;
+  float latencyp99 = 5;
+  float runtime = 6;
+  string metrics = 7;
+}
+
+message Loss {
+  float loss = 1;
+}
+
+message Empty {
+}

@@ -1,0 +1,5 @@
+version: '2.4'
+
+services:
+    worker:
+        command: ray start --address=${HEAD_NODE_IP_ADDRESS}:${HEAD_NODE_CLUSTER_PORT} --num-cpus=1 --block ; tail -f /dev/null

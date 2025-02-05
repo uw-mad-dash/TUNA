@@ -1,0 +1,17 @@
+# @package deploy.instance_type
+
+name: 16c64m
+
+# Storage-related vars
+disk_device: /dev/sda
+disk_partition: /dev/sda
+disk_mount_point: /datadrive/data
+disk_backup_mount_point: /datadrive/data/backup
+mem_backup_mount_point: /datadrive/data/shm/backup
+
+# Container isolation / restriction vars
+cpuset_cpus_driver: 0-15
+cpuset_cpus_workload: 0-15
+mem_limit_driver: 16G
+mem_limit_workload: 48G
+shm_size_driver: 16G  # typically, >30% of mem limit

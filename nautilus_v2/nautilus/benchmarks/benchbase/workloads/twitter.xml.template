@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<parameters>
+
+  <!-- DB connection settings -->
+  <type>__DB_TYPE__</type>
+  <driver>__DB_JDBC_DRIVER__</driver>
+  <url>jdbc:__DB_JDBC_SUBPROTOCOL__://__HOST__:__PORT__/__DB_NAME____URL_SUFFIX__</url>
+  <DBName>__DB_NAME__</DBName>
+  <username>__DB_USER__</username>
+  <password>__DB_PASSWORD__</password>
+  <isolation>__CONN_ISOLATION_LEVEL__</isolation>
+
+  <!-- Benchmark properties -->
+  <!-- Scalefactor in Twitter scales by *500 the number of users -->
+  <!-- <scalefactor>100</scalefactor> -->
+  <scalefactor>__SCALE_FACTOR__</scalefactor>
+  <terminals>__TERMINALS__</terminals>
+  <batchsize>__BATCH_SIZE__</batchsize>
+  <works>
+    <work>
+      <warmup>__WARMUP_DURATION__</warmup>
+      <time>__BENCHMARK_DURATION__</time>
+      <rate>__RATE__</rate>
+      <!-- Workload transactions mix -->
+      <weights>1,1,7,90,1</weights>
+    </work>
+  </works>
+
+	<!-- Trace files for Twitter -->
+  <tracefile>config/traces/twitter_tweetids.txt</tracefile>
+  <tracefile2>config/traces/twitter_user_ids.txt</tracefile2>
+  <base_ip>10.1.</base_ip>
+
+  <!-- Twitter Procedures declaration -->
+  <transactiontypes>
+    <transactiontype>
+      <name>GetTweet</name>
+    </transactiontype>
+    <transactiontype>
+      <name>GetTweetsFromFollowing</name>
+    </transactiontype>
+    <transactiontype>
+      <name>GetFollowers</name>
+    </transactiontype>
+    <transactiontype>
+      <name>GetUserTweets</name>
+    </transactiontype>
+    <transactiontype>
+      <name>InsertTweet</name>
+    </transactiontype>
+  </transactiontypes>
+
+</parameters>

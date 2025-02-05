@@ -1,0 +1,11 @@
+{
+    "shortname": "mysql8.3-tpcc-c220g5",
+    "description": "mysql 8.3, TPC-C, c220g5",
+    "benchmark": "../benchmark/tpcc.json",
+    "dbms": "../dbms/mysql-8.3.json",
+    "knobs": "../knobs/mysql-8.3.json",
+    "params": "../params/c220g5.json",
+    "target": "goodput",
+    "worst_score": 0,
+    "timeout": 2400
+}

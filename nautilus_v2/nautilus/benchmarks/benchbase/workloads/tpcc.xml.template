@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<parameters>
+
+  <!-- DB connection settings -->
+  <type>__DB_TYPE__</type>
+  <driver>__DB_JDBC_DRIVER__</driver>
+  <url>jdbc:__DB_JDBC_SUBPROTOCOL__://__HOST__:__PORT__/__DB_NAME____URL_SUFFIX__</url>
+  <DBName>__DB_NAME__</DBName>
+  <username>__DB_USER__</username>
+  <password>__DB_PASSWORD__</password>
+  <isolation>__CONN_ISOLATION_LEVEL__</isolation>
+
+  <!-- Benchmark properties -->
+  <scalefactor>__SCALE_FACTOR__</scalefactor>
+  <terminals>__TERMINALS__</terminals>
+  <batchsize>__BATCH_SIZE__</batchsize>
+  <works>
+    <work>
+      <warmup>__WARMUP_DURATION__</warmup>
+      <time>__BENCHMARK_DURATION__</time>
+      <rate>__RATE__</rate>
+      <!-- Workload transactions mix -->
+      <weights>45,43,4,4,4</weights>
+    </work>
+  </works>
+
+  <!-- TPC-C Transactions -->
+  <transactiontypes>
+    <transactiontype>
+      <name>NewOrder</name>
+      <id>1</id>
+    </transactiontype>
+    <transactiontype>
+      <name>Payment</name>
+      <id>2</id>
+    </transactiontype>
+    <transactiontype>
+      <name>OrderStatus</name>
+      <id>3</id>
+    </transactiontype>
+    <transactiontype>
+      <name>Delivery</name>
+      <id>4</id>
+    </transactiontype>
+    <transactiontype>
+      <name>StockLevel</name>
+      <id>5</id>
+    </transactiontype>
+  </transactiontypes>
+</parameters>

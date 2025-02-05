@@ -1,0 +1,11 @@
+{
+    "shortname": "mysql8.3-tpccshort-8c32m",
+    "description": "mysql 8.3, TPC-C Short, 8c32m",
+    "benchmark": "../benchmark/tpcc-short.json",
+    "dbms": "../dbms/mysql-8.3.json",
+    "knobs": "../knobs/mysql-8.3.json",
+    "params": "../params/8c32m.json",
+    "target": "goodput",
+    "worst_score": 0,
+    "timeout": 5400
+}

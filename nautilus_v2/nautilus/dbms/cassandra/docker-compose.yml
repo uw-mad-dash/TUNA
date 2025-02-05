@@ -1,0 +1,21 @@
+version: '2.4'
+services:
+    dbms:
+        image: cassandra:3.11
+        container_name: ${DB_CONTAINER_NAME}
+        cpuset: ${CPUSET_CPUS_WORKLOAD}
+        mem_limit: ${MEM_LIMIT_WORKLOAD}
+        environment:
+            CASSANDRA_RPC_ADDRESS: 0.0.0.0
+        volumes:
+            - ${DISK_MOUNT_POINT}/cassandra:/var/lib/cassandra
+            - ${DB_CONF_FILEPATH}:/etc/cassandra/cassandra.yaml
+            - ${DB_INIT_DIR}:/tmp/init-db:ro
+        networks:
+            - deploy_nautilus-dbms-conn
+        security_opt:
+            - seccomp:unconfined
+
+networks:
+    deploy_nautilus-dbms-conn:
+        external: true

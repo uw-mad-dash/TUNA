@@ -1,0 +1,27 @@
+version: '2.4'
+
+services:
+    worker:
+        build:
+            context: ${NAUTILUS_DIR}
+            dockerfile: Dockerfile.worker
+        container_name: worker
+        hostname: nautilus.${HOST_ID}
+        cpuset: ${CPUSET_CPUS_DRIVER}
+        mem_limit: ${MEM_LIMIT_DRIVER}
+        shm_size: ${SHM_SIZE_DRIVER}
+        volumes:
+            - /var/run/docker.sock:/var/run/docker.sock
+            - /proc:/host_proc
+            - ${WORKSPACE_MOUNT_POINT}:${LOCAL_WORKSPACE_MOUNT_POINT}
+            - ${DISK_BACKUP_MOUNT_POINT}:${LOCAL_DISK_BACKUP_MOUNT_POINT}
+            - ${DISK_MOUNT_POINT}:${LOCAL_DISK_MOUNT_POINT}
+            - /opt/wrk/http:/benchmark/wrk/http:ro
+        environment:
+            - RAY_DEDUP_LOGS=0
+        networks:
+            - nautilus-dbms-conn
+
+networks:
+    nautilus-dbms-conn:
+        driver: bridge

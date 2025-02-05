@@ -1,0 +1,5 @@
+# Limit execution time to 30 secs
+maxexecutiontime=__WARMUP_DURATION__
+
+# Default measurement type -- won't be used anyways!
+measurementtype=histogram

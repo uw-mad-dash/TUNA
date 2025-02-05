@@ -1,0 +1,9 @@
+{
+    "run_duration_seconds": 300,
+    "memory_size_bytes": 17179869184,
+    "_memory_size_bytes": "16 * 2**30",
+    "num_cpus": 8,
+    "page_size": 4096,
+    "db_size": 28991029248,
+    "_db_size": "27 * 2**30"
+}

@@ -1,0 +1,19 @@
+version: '2.4'
+services:
+    dbms:
+        image: nginx:${DBMS_VERSION}
+        container_name: ${DB_CONTAINER_NAME}
+        cpuset: ${CPUSET_CPUS_WORKLOAD}
+        mem_limit: ${MEM_LIMIT_WORKLOAD}
+        volumes:
+            - ${DB_CONF_FILEPATH}:/etc/nginx/nginx.conf:ro
+            - ${DISK_MOUNT_POINT}/nginx:/empty
+            - /opt/wrk:/wrk:ro
+        networks:
+            - deploy_nautilus-dbms-conn
+        security_opt:
+            - seccomp:unconfined
+
+networks:
+    deploy_nautilus-dbms-conn:
+        external: true

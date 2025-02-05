@@ -1,0 +1,17 @@
+# @package deploy.instance_type
+
+name: 4c16m
+
+# Storage-related vars
+disk_device: /dev/sda
+disk_partition: /dev/sda
+disk_mount_point: /datadrive/data
+disk_backup_mount_point: /datadrive/data/backup
+mem_backup_mount_point: /datadrive/data/shm/backup
+
+# Container isolation / restriction vars
+cpuset_cpus_driver: 0-3
+cpuset_cpus_workload: 0-3
+mem_limit_driver: 4G
+mem_limit_workload: 12G
+shm_size_driver: 4G  # typically, >30% of mem limit

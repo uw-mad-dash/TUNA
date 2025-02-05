@@ -1,0 +1,11 @@
+{
+    "shortname": "nginx1.27-wrk-8c32m",
+    "description": "nginx 1.27, wrk, 8c32m",
+    "benchmark": "../benchmark/wrk.json",
+    "dbms": "../dbms/nginx-1.27.json",
+    "knobs": "../knobs/nginx-1.27.json",
+    "params": "../params/8c32m.json",
+    "target": "latencyp95",
+    "worst_score": 1000000,
+    "timeout": 2400
+}

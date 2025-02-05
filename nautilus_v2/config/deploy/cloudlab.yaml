@@ -1,0 +1,31 @@
+
+netifaces_pref: [
+    'ens1f0',   # >1 nodes \w internal networking
+    'eno1',     # >1 nodes \wo internal networking
+    'enp1s0f0', # =1 node; only external networking
+]
+head_node_ip_address: ${local_ip:${deploy.netifaces_pref}}
+head_node_cluster_port: 1337
+head_node_dashboard_port: 1338
+head_node_remote_port: 50050
+
+workspace_mount_point: /tmp/nautilus-workspace
+
+instance_type: ${cloudlab_instance_type_cfg:}
+
+# Needed by fabric deployment script
+#user: kanellis
+#private_key_filepath: '/home/kkanellis/.ssh/cloudlab'
+#linux_packages:
+#    - git
+#    - htop
+#    - tree
+#framework_packages:
+#    - docker.io
+#    - docker.compose
+#    - python3-pip
+#python_packages:
+#    - hydra-core
+#    - docker
+#    - tmuxp
+#    - netifaces

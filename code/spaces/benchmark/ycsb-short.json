@@ -1,0 +1,11 @@
+{
+    "name": "ycsb",
+    "workload": "workloada",
+    "warmup_duration": 1,
+    "benchmark_duration": 1,
+    "workload_properties": {
+        "recordcount": 10,
+        "operationcount": 10,
+        "threadcount": 40
+    }
+}
