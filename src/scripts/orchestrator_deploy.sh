@@ -14,7 +14,6 @@ scp -P $2 ../code/* $1:code
 scp -P $2 -r ../code/spaces $1:code
 scp -P $2 -r ../code/proto $1:code
 scp -P $2 -r ../code/MLOS $1:code
-scp -P $2 -r ../code/executors $1:code
 scp -P $2 -r ../code/client $1:code
 scp -P $2 -r ../code/benchmarks $1:code
 
