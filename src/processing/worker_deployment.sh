@@ -7,10 +7,10 @@ parallel-ssh -h $1 "sudo docker rm dbms"
 parallel-ssh -h $1 "sudo pkill python3.11"
 
 
-parallel-ssh -h $1 "sudo rm -rf ./nautilus_v2"
-parallel-scp -r -h $1 nautilus_v2 .
+parallel-ssh -h $1 "sudo rm -rf ./nautilus"
+parallel-scp -r -h $1 nautilus .
 parallel-ssh -h $1 "sudo rm -rf /opt/nautilus"
-parallel-ssh -h $1 "sudo cp -r nautilus_v2 /opt/nautilus"
+parallel-ssh -h $1 "sudo cp -r nautilus /opt/nautilus"
 
 parallel-ssh -h $1 "sudo mkdir -p /opt/proxy"
 parallel-ssh -h $1 "sudo mkdir -p /opt/output"
@@ -28,7 +28,7 @@ done
 parallel-ssh -h $1 "sudo cp -r /opt/proxy/legacy_proxy/* /opt/proxy"
 parallel-ssh -h $1 "sudo rm -rf /opt/proxy/nautilus"
 parallel-ssh -h $1 "sudo mkdir /opt/proxy/nautilus"
-parallel-ssh -h $1 "sudo cp -r nautilus_v2/* /opt/proxy/"
+parallel-ssh -h $1 "sudo cp -r nautilus/* /opt/proxy/"
 
 parallel-ssh -h $1 "cd /opt/nautilus && sudo mkdir logs"
 
