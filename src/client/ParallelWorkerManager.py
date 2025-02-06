@@ -90,14 +90,14 @@ class ParallelWorkerManager(WorkerManager):
 
             print(f"Trial {iterations} Started")
             try:
-                evaluation = Performanace(
-                    throughput=1234,
-                    latencyp50=1234,
-                    latencyp95=1234,
+                #evaluation = Performanace(
+                #    throughput=1234,
+                #    latencyp50=1234,
+                #    latencyp95=1234,
+                #)
+                evaluation: Performanace = eval_client.evaluate(
+                   clean_config, timeout=self.timeout
                 )
-                # evaluation: Performanace = eval_client.evaluate(
-                #    clean_config, timeout=self.timeout
-                # )
                 score = self.extract_target(evaluation)
 
             except Exception as e:
@@ -133,4 +133,4 @@ class ParallelWorkerManager(WorkerManager):
             iterations += 1
 
     def get_observations(self) -> pd.DataFrame:
-        return self.observations.drop(columns=["Config"])
+        return self.observations.drop(columns=["Context"])

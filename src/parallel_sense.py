@@ -60,7 +60,7 @@ def main() -> int:
     )
     manager.start()
 
-    observations: pd.DataFrame = manager.get_observations_full()
+    observations: pd.DataFrame = manager.get_observations()
 
     observations.to_csv(f"results/parallel_{shortname}-s{seed}.csv")
 

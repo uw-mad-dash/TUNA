@@ -46,7 +46,7 @@ def main() -> int:
     )
     manager.start()
 
-    observations: pd.DataFrame = manager.get_observations_full()
+    observations: pd.DataFrame = manager.get_observations()
     observations.to_csv(f"results/naivemeasured_seed{seed}.csv")
 
 

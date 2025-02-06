@@ -428,7 +428,9 @@ def finalize_space(config: dict, metadata: dict, **params: dict) -> dict:
                         d += 0.2
                 if not found:
                     v = ((v - d) / (1 - d)) * (maxval - minval) + minval
-            elif meta["type"] == "enum" and type(v) is not str:
+            elif meta["type"] == "enum" and type(v) is not str and type(v) is not np.str_:
+                
+                print(type(v))
                 partitions = 1 / len(meta["choices"])
                 v = meta["choices"][min(int(v // partitions), len(meta["choices"]) - 1)]
 

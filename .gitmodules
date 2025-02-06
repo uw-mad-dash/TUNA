@@ -1,3 +1,3 @@
 [submodule "src/MLOS"]
-	path = code/MLOS
+	path = src/MLOS
 	url = git@github.com:jsfreischuetz/MLOS.git

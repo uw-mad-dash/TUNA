@@ -59,7 +59,7 @@ class IntelMemoryLatencyChecker(Benchmark):
         if os.path.exists("mlc_v3.11.tgz"):
             os.remove("mlc_v3.11.tgz")
         benchmarks.utils.run_command_simple(
-            ["wget", "https://downloadmirror.intel.com/793041/mlc_v3.11.tgz"]
+            ["wget", " "]
         )
         Path("/opt/mlc").mkdir(parents=True, exist_ok=True)
         benchmarks.utils.run_command_simple(

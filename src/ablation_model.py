@@ -50,11 +50,11 @@ def main() -> int:
         stopping_criteria=lambda iter, trial: trial < 500,
         minimization=(target == "latency" or target == "runtime"),
         timeout=timeout,
-        file_prefix="ablation",
+        file_prefix="ablation_model",
     )
     manager.start()
 
-    observations: pd.DataFrame = manager.get_observations_full()
+    observations: pd.DataFrame = manager.get_observations()
     observations.to_csv(f"results/ablation_seed{seed}.csv")
 
 

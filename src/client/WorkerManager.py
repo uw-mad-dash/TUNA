@@ -49,7 +49,7 @@ class WorkerManager(ABC):
         observations: pd.DataFrame = self.get_observations()
         dest = f"results/{type(self).__name__}_{self.shortname}-seed{self.seed}"
         observations.to_csv(f"{dest}.csv")
-        observations.to_parquet(f"{dest}.parquet")
+        observations.to_pickle(f"{dest}.")
 
     def _extract_values(
         self, suggested_value: pd.DataFrame, context: pd.DataFrame

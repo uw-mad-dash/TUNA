@@ -65,7 +65,7 @@ def main() -> int:
 
     observations: pd.DataFrame = manager.get_observations()
     observations.to_csv(f"results/no_model_seed{seed}.csv")
-    observations.to_parquet(f"results/no_model_seed{seed}.parquet")
+    observations.to_pickle(f"results/no_model_seed{seed}.pickle")
 
 
 if __name__ == "__main__":

@@ -25,6 +25,23 @@ TUNA uses [MLOS](https://github.com/microsoft/MLOS) as it's base tuning framewor
 
 ## Environment
 
+### Workers
+Run `./add_hosts.sh <hosts> 22`
+`./worker_setup_remote.sh <hosts>`
+`./worker_deployment.sh hosts <node_type>`
+c220g5 is good for cloudlab. If you are running on another node, 8c32m will likely work
+
+
+### Orchestrator
+`bash orchestrator_deploy.sh <orchrestrator_host> 22`
+connect to orch
+`tmux`
+`cd src/MLOS ; make`
+`cd ..`
+`conda activate mlos`
+
+
 ## Run Experiments
+
 
 ## Usage Examples
