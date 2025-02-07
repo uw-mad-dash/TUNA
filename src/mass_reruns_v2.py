@@ -84,27 +84,7 @@ def main() -> int:
     for index, row in df.reset_index().iterrows():
         print("Starting ", index)
 
-        if "cluster_cl" in row["Source"]:
-            bm = tpcc_bm
-            target = "throughput"
-            dbms = pg_dbms
-        elif "cluster3_mssales" in row["Source"]:
-            bm = mssales_bm
-            target = "runtime"
-            dbms = pg_dbms
-        elif "cluster4_ablation_outlier" in row["Source"]:
-            bm = tpcc_bm
-            target = "throughput"
-            dbms = pg_dbms
-        elif "cluster2_mysql" in row["Source"]:
-            bm = tpcc_bm
-            target = "throughput"
-            dbms = my_dbms
-        elif "cluster1_tpch" in row["Source"]:
-            bm = tpch_bm
-            target = "runtime"
-            dbms = pg_dbms
-        elif "tpcc" in row["Source"]:
+        if "tpcc" in row["Source"]:
             bm = tpcc_bm
             target = "throughput"
             dbms = pg_dbms
@@ -113,18 +93,6 @@ def main() -> int:
             target = "throughput"
             dbms = pg_dbms
         elif "tpch" in row["Source"]:
-            bm = tpch_bm
-            target = "latency50"
-            dbms = pg_dbms
-        elif "cluster1" in row["Source"]:
-            bm = tpcc_bm
-            target = "throughput"
-            dbms = pg_dbms
-        elif "cluster2" in row["Source"]:
-            bm = epinions_bm
-            target = "throughput"
-            dbms = pg_dbms
-        elif "cluster3" in row["Source"]:
             bm = tpch_bm
             target = "latency50"
             dbms = pg_dbms
