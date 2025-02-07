@@ -75,23 +75,29 @@ First, like before we will set up the environment using a deployment script. Thi
 
 Next, connect to your orchestrator node and run the following commands. Note, that the first command is `tmux`. We recommend using this as tuning runs are long running. Without `tmux` disconnects are common over `ssh`, however this is not technically required.
 
-`tmux`
+```sh
+tmux
+```
 
-`cd src/MLOS ; make`
-
-`cd ..`
-
-`conda activate mlos`
+```sh
+cd src/MLOS ; make
+cd ..
+conda activate mlos
+```
 
 ## Usage Examples
 
 To test functionality of TUNA, there is one main script that can be run on the orchestartor node:
 
-`python3 TUNA.py <experiment> <seed> <hosts>`
+```sh
+python3 TUNA.py <experiment> <seed> <hosts>
+```
 
 An example of this with the parameters filled out the way we used it in the paper is as follows:
 
-`python3 TUNA.py spaces/experiment/pg16.1-tpcc-8c32m.json 1 hosts.cloudlab`
+```sh
+python3 TUNA.py spaces/experiment/pg16.1-tpcc-8c32m.json 1 hosts.cloudlab
+```
 
 Running this command will run a tuning run for around 8 hours. The results will be output into the results folder in .csv and .pickle file formats. These can then be rerun using `mass_reruns_v2.py`, however this is not required to get tuning results.
 
