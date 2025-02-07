@@ -1,6 +1,9 @@
 # TUNA: Tuning Unstable and Noisy Cloud Applications
 
-This repository contains the source code used for "TUNA: <ins>T</ins>uning <ins>U</ins>nstable and <ins>C</ins>oisy Cloud <ins>A</ins>pplications" (to appear in [EuroSys'25](https://2025.eurosys.org/accepted-papers.html#pagetop)). TUNA is a sampling methodology that uses a few key insights to improve the quality of configurations found during system autotuning. In particular, (1) TUNA uses a outlier detector to prevent unstable configurations from being learned, (2) a noise adjustor model and (3) multi-fidelity tuning to improve the rate of convergence.
+This repository contains the source code used for "TUNA: <ins>T</ins>uning <ins>U</ins>nstable and <ins>C</ins>oisy Cloud <ins>A</ins>pplications" (to appear in [EuroSys'25](https://2025.eurosys.org/accepted-papers.html#pagetop)). TUNA is a sampling methodology that uses a few key insights to improve the quality of configurations found during system autotuning. In particular, TUNA uses
+1. An *outlier detector* to prevent unstable configurations from being learned,
+2. A *noise adjustor model* to provide a more stable signal to an optimizer to learn from, and
+3. *Cost concious* *multi-fidelity* tuning to improve the rate of convergence.
 
 This code can be used to run the main experimental results from our paper. Users interested in using these techniques can make small modifications to the scripts to integrate their own target systems, particularly in `nautilus`, or in `proxy/evaluation_server.py`.
 
@@ -8,13 +11,15 @@ This code can be used to run the main experimental results from our paper. Users
 
 To pull the code, we use a submodules for library dependencies. These commands should pull all the necessary code.
 
-`git clone git@github.com:uw-mad-dash/TUNA.git`
-
-`git submodule update --init --recursive`
+```sh
+git clone git@github.com:uw-mad-dash/TUNA.git
+git submodule update --init --recursive
+```
 
 ## Source Code Structure
 
-TUNA uses [MLOS](https://github.com/microsoft/MLOS) as it's base tuning framework, and implements a custom scheduling and sampling policy on top of it, and then selects tuners from those offered. TUNA also uses [Nautilus](https://dl.acm.org/doi/pdf/10.1145/3650203.3663336) to manage and deploy the execution environment. The code here is a fork of a private library that will be released soon.
+TUNA uses [MLOS](https://github.com/microsoft/MLOS) as it's base tuning framework, and implements a custom scheduling and sampling policy on top of it, and then selects tuners from those offered (we intend to incorporate them [upstream](https://github.com/microsoft/MLOS/issues/926) in time).
+TUNA also uses [Nautilus](https://dl.acm.org/doi/pdf/10.1145/3650203.3663336) to manage and deploy the execution environment. The code here is a fork of a private library that will be released soon.
 
 - `src`
   - `benchmarks`: Metric collection scripts
@@ -47,6 +52,7 @@ These scripts should work on any platform, however, we have only tested this on 
 If you are trying to replicate the work found in our paper, we recommend using 10 worker nodes and 1 orchestrator node, where the 10 worker nodes are the first 10 nodes that were created. This will allow you to use our provided hosts files (`hosts.azure` or `hosts.cloudlab`). Alternatively, a custom host file can be used.
 
 ### Workers
+
 To install and copy our files, there are two commands we will need to run.
 
 - `./worker_setup_remote.sh <hosts>`
