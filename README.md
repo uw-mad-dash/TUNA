@@ -86,7 +86,7 @@ tmux
 ```
 
 ```sh
-make -C src/MLOS
+make -C src/MLOS # (only the conda-env target is required)
 conda activate mlos
 ```
 
