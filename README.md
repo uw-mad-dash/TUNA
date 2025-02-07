@@ -55,11 +55,15 @@ If you are trying to replicate the work found in our paper, we recommend using 1
 
 To install and copy our files, there are two commands we will need to run.
 
-- `./worker_setup_remote.sh <hosts>`
+```sh
+./worker_setup_remote.sh <hosts>
+```
 
 The first command will install all of the dependencies, as well as set up the environment.
 
-`./worker_deployment.sh <hosts> <node_type>`
+```sh
+./worker_deployment.sh <hosts> <node_type>
+```
 
 The second command will start all of the required processes. Note that the second command will say some of the commands fail. This is expected, as they simply ensure that any previous instances of stopped and deleted before beginning the initialization process.
 
@@ -69,7 +73,9 @@ At some point during running this command, there will be a required interaction 
 
 Building the orchestrator is requires slightly more interaction from the user. 
 
-`bash orchestrator_deploy.sh <orchestrator_host> 22`
+```sh
+bash orchestrator_deploy.sh <orchestrator_host> 22
+```
 
 First, like before we will set up the environment using a deployment script. This will, again, automate the file transfer and environment setup.
 
@@ -80,8 +86,7 @@ tmux
 ```
 
 ```sh
-cd src/MLOS ; make
-cd ..
+make -C src/MLOS
 conda activate mlos
 ```
 
