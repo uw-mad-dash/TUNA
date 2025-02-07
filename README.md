@@ -1,6 +1,6 @@
 # TUNA: Tuning Unstable and Noisy Cloud Applications
 
-This repository contains the source code used for "TUNA: <ins>T</ins>uning <ins>U</ins>nstable and <ins>C</ins>oisy Cloud <ins>A</ins>pplications" (to appear in (EuroSys'25)[https://2025.eurosys.org/accepted-papers.html#pagetop]). TUNA is a sampling methodology that uses a few key insights to improve the quality of configurations found during system autotuning. In particular, (1) TUNA uses a outlier detector to prevent unstable configurations from being learned, (2) a noise adjustor model and (3) multi-fidelity tuning to improve the rate of convergence.
+This repository contains the source code used for "TUNA: <ins>T</ins>uning <ins>U</ins>nstable and <ins>C</ins>oisy Cloud <ins>A</ins>pplications" (to appear in [EuroSys'25](https://2025.eurosys.org/accepted-papers.html#pagetop)). TUNA is a sampling methodology that uses a few key insights to improve the quality of configurations found during system autotuning. In particular, (1) TUNA uses a outlier detector to prevent unstable configurations from being learned, (2) a noise adjustor model and (3) multi-fidelity tuning to improve the rate of convergence.
 
 This code can be used to run the main experimental results from our paper. Users interested in using these techniques can make small modifications to the scripts to integrate their own target systems, particularly in `nautilus`, or in `proxy/evaluation_server.py`.
 
