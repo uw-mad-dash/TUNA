@@ -1,6 +1,11 @@
 # TUNA: Tuning Unstable and Noisy Cloud Applications
 
-This repository contains the source code used for "TUNA: <ins>T</ins>uning <ins>U</ins>nstable and <ins>N</ins>oisy Cloud <ins>A</ins>pplications" (to appear in [EuroSys'25](https://2025.eurosys.org/accepted-papers.html#pagetop)). TUNA is a sampling methodology that uses a few key insights to improve the quality of configurations found during system autotuning. In particular, (1) TUNA uses a outlier detector to prevent unstable configurations from being learned, (2) a noise adjustor model and (3) multi-fidelity tuning to improve the rate of convergence.
+This repository contains the source code used for "TUNA: <ins>T</ins>uning <ins>U</ins>nstable and <ins>N</ins>oisy Cloud <ins>A</ins>pplications" (to appear in [EuroSys'25](https://2025.eurosys.org/accepted-papers.html#pagetop)).
+TUNA is a sampling methodology that uses a few key insights to improve the quality of configurations found during system autotuning.
+In particular, TUNA uses
+1. An *outlier detector* to prevent unstable configurations from being learned,
+2. A *noise adjustor model* to provide a more stable signal to an optimizer to learn from, and
+3. *Cost concious* *multi-fidelity* tuning to improve the rate of convergence.
 
 This code can be used to run the main experimental results from our paper. Users interested in using these techniques can make small modifications to the scripts to integrate their own target systems, particularly in `nautilus`, or in `proxy/evaluation_server.py`.
 
@@ -8,13 +13,15 @@ This code can be used to run the main experimental results from our paper. Users
 
 To pull the code, we use a submodules for library dependencies. These commands should pull all the necessary code.
 
-`git clone git@github.com:uw-mad-dash/TUNA.git`
-
-`git submodule update --init --recursive`
+```sh
+git clone git@github.com:uw-mad-dash/TUNA.git
+git submodule update --init --recursive
+```
 
 ## Source Code Structure
 
-TUNA uses [MLOS](https://github.com/microsoft/MLOS) as it's base tuning framework, and implements a custom scheduling and sampling policy on top of it, and then selects tuners from those offered. TUNA also uses [Nautilus](https://dl.acm.org/doi/pdf/10.1145/3650203.3663336) to manage and deploy the execution environment. The code here is a fork of a private library that will be released soon.
+TUNA uses [MLOS](https://github.com/microsoft/MLOS) as it's base tuning framework, and implements a custom scheduling and sampling policy on top of it, and then selects tuners from those offered (we intend to incorporate them [upstream](https://github.com/microsoft/MLOS/issues/926) in time).
+TUNA also uses [Nautilus](https://dl.acm.org/doi/pdf/10.1145/3650203.3663336) to manage and deploy the execution environment. The code here is a fork of a private library that will be released soon.
 
 - `src`
   - `benchmarks`: Metric collection scripts
@@ -47,13 +54,18 @@ These scripts should work on any platform, however, we have only tested this on 
 If you are trying to replicate the work found in our paper, we recommend using 10 worker nodes and 1 orchestrator node, where the 10 worker nodes are the first 10 nodes that were created. This will allow you to use our provided hosts files (`hosts.azure` or `hosts.cloudlab`). Alternatively, a custom host file can be used.
 
 ### Workers
+
 To install and copy our files, there are two commands we will need to run.
 
-- `./worker_setup_remote.sh <hosts>`
+```sh
+./worker_setup_remote.sh <hosts>
+```
 
 The first command will install all of the dependencies, as well as set up the environment.
 
-`./worker_deployment.sh <hosts> <node_type>`
+```sh
+./worker_deployment.sh <hosts> <node_type>
+```
 
 The second command will start all of the required processes. Note that the second command will say some of the commands fail. This is expected, as they simply ensure that any previous instances of stopped and deleted before beginning the initialization process.
 
@@ -63,29 +75,36 @@ At some point during running this command, there will be a required interaction 
 
 Building the orchestrator requires slightly more interaction from the user.
 
-`bash orchestrator_deploy.sh <orchestrator_host> 22`
+```sh
+bash orchestrator_deploy.sh <orchestrator_host> 22
+```
 
 First, like before we will set up the environment using a deployment script. This will, again, automate the file transfer and environment setup.
 
 Next, connect to your orchestrator node and run the following commands. Note, that the first command is `tmux`. We recommend using this as tuning runs are long running. Without `tmux` disconnects are common over `ssh`, however this is not technically required.
 
-`tmux`
+```sh
+tmux
+```
 
-`cd src/MLOS ; make`
-
-`cd ..`
-
-`conda activate mlos`
+```sh
+make -C src/MLOS # (only the conda-env target is required)
+conda activate mlos
+```
 
 ## Usage Examples
 
 To test functionality of TUNA, there is one main script that can be run on the orchestartor node:
 
-`python3 TUNA.py <experiment> <seed> <hosts>`
+```sh
+python3 TUNA.py <experiment> <seed> <hosts>
+```
 
 An example of this with the parameters filled out the way we used it in the paper is as follows:
 
-`python3 TUNA.py spaces/experiment/pg16.1-tpcc-8c32m.json 1 hosts.cloudlab`
+```sh
+python3 TUNA.py spaces/experiment/pg16.1-tpcc-8c32m.json 1 hosts.cloudlab
+```
 
 Running this command will run a tuning run for around 8 hours. The results will be output into the results folder in .csv and .pickle file formats. These can then be rerun using `mass_reruns_v2.py`, however this is not required to get tuning results.
 
@@ -116,3 +135,7 @@ Here we provide a brief description of each tuning script. All of the following 
 | Figure 12 | Run 10 parallel tuning runs, and 10 runs using TUNA targeting the YCSB-C workload on redis running on Azure. Take the data that is generated from this output and rerun the data on a set of 10 new worker nodes.           | $320                 | `python3 parallel.py spaces/experiment/redis7.2-ycsb-8c32m-latency.json <seed> <hosts>`<br /> `python3 TUNA.py spaces/experiment/redis7.2-ycsb-8c32m-latency.json <seed> <hosts>`  <br /> `python3 mass_reruns_v2.py` |
 | Figure 14 | Identical to Figure 9a, however using a gaussian process optimizer rather than a random forest optimizer (SMAC).                                                                                                            | $320                 | `python3 parallel_gp.py spaces/experiment/pg16.1-tpcc-8c32m.json <seed> <hosts>`<br /> `python3 TUNA_gp.py spaces/experiment/pg16.1-tpcc-8c32m.json <seed> <hosts>`  <br /> `python3 mass_reruns_v2.py`               |
 | Figure 16 | Identical to Figure 9a, with the outlier detector ablated.                                                                                                                                                                  | $1400                | `python3 TUNA.py spaces/experiment/pg16.1-epinions-8c32m.json <seed> <hosts>`<br /> `python3 TUNA_no_model.py spaces/experiment/pg16.1-epinions-8c32m.json <seed> <hosts>`  <br />                                    |
+
+## See Also
+
+- <https://aka.ms/mlos/tuna-eurosys-dataset> - The VM noise dataset used to inform the design of TUNA.
