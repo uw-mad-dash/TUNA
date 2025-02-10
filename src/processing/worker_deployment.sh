@@ -1,11 +1,11 @@
 #!/bin/bash
 
+# move the requiremenst over
+parallel-scp -h $1 requirements.txt .
+
 pushd ..
 
 cat $1
-
-# move the requiremenst over
-parallel-scp -h $1 requirements.txt .
 
 # stop and remove the previous containers
 parallel-ssh -h $1 "sudo docker kill dbms"
