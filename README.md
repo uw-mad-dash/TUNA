@@ -1,6 +1,8 @@
 # TUNA: Tuning Unstable and Noisy Cloud Applications
 
-This repository contains the source code used for "TUNA: <ins>T</ins>uning <ins>U</ins>nstable and <ins>C</ins>oisy Cloud <ins>A</ins>pplications" (to appear in [EuroSys'25](https://2025.eurosys.org/accepted-papers.html#pagetop)). TUNA is a sampling methodology that uses a few key insights to improve the quality of configurations found during system autotuning. In particular, TUNA uses
+This repository contains the source code used for "TUNA: <ins>T</ins>uning <ins>U</ins>nstable and <ins>C</ins>oisy Cloud <ins>A</ins>pplications" (to appear in [EuroSys'25](https://2025.eurosys.org/accepted-papers.html#pagetop)).
+TUNA is a sampling methodology that uses a few key insights to improve the quality of configurations found during system autotuning.
+In particular, TUNA uses
 1. An *outlier detector* to prevent unstable configurations from being learned,
 2. A *noise adjustor model* to provide a more stable signal to an optimizer to learn from, and
 3. *Cost concious* *multi-fidelity* tuning to improve the rate of convergence.
@@ -133,3 +135,7 @@ Here we provide a brief description of each tuning script. All of the following 
 | Figure 12 | Run 10 parallel tuning runs, and 10 runs using TUNA targeting the YCSB-C workload on redis running on Azure. Take the data that is generated from this output and rerun the data on a set of 10 new worker nodes.           | $320                 | `python3 parallel.py spaces/experiment/redis7.2-ycsb-8c32m-latency.json <seed> <hosts>`<br /> `python3 TUNA.py spaces/experiment/redis7.2-ycsb-8c32m-latency.json <seed> <hosts>`  <br /> `python3 mass_reruns_v2.py` |
 | Figure 14 | Identical to Figure 9a, however using a gaussian process optimizer rather than a random forest optimizer (SMAC).                                                                                                            | $320                 | `python3 parallel_gp.py spaces/experiment/pg16.1-tpcc-8c32m.json <seed> <hosts>`<br /> `python3 TUNA_gp.py spaces/experiment/pg16.1-tpcc-8c32m.json <seed> <hosts>`  <br /> `python3 mass_reruns_v2.py`               |
 | Figure 16 | Identical to Figure 9a, with the outlier detector ablated.                                                                                                                                                                  | $1400                | `python3 TUNA.py spaces/experiment/pg16.1-epinions-8c32m.json <seed> <hosts>`<br /> `python3 TUNA_no_model.py spaces/experiment/pg16.1-epinions-8c32m.json <seed> <hosts>`  <br />                                    |
+
+## See Also
+
+- <https://aka.ms/mlos/tuna-eurosys-dataset> - The VM noise dataset used to inform the design of TUNA.
