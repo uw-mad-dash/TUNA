@@ -138,7 +138,7 @@ Here we provide a brief description of each tuning script. All of the following 
 - `TUNA_gp.py`: A script to run TUNA with the optimizer switched out for a gaussian process model
 - `TUNA_no_model.py`:The full TUNA sampling methodology without the noise adjustor model.
 - `TUNA_no_outlier.py`: The full TUNA sampling methodology without the outlier detection.
-- `TUNA.py`: The normal TUNA sampling script that is used throughout the paper.
+- `TUNA.py`: The normal TUNA sampling script that is used tbroughout the paper.
 
 ### Scripts used for Reproducing Selected Experiments
 
@@ -163,9 +163,9 @@ Here we provide a brief description of each tuning script. All of the following 
         <td>$320</td>
         <td>
           <code>python3 parallel.py spaces/experiment/pg16.1-epinions-8c32m.json &lt;seed&gt; &lt;hosts&gt;</code>
-          <hr/>
+          <br/>
           <code>python3 TUNA.py spaces/experiment/pg16.1-epinions-8c32m.json &lt;seed&gt; &lt;hosts&gt;</code>
-          <hr/>
+          <br/>
           <code>python3 mass_reruns_v2.py</code>
         </td>
     </tr>
@@ -175,9 +175,9 @@ Here we provide a brief description of each tuning script. All of the following 
         <td>$320</td>
         <td>
           <code>python3 parallel.py spaces/experiment/pg16.1-epinions-8c32m.json &lt;seed&gt; &lt;hosts&gt;</code>
-          <hr/>
+          <br/>
           <code>python3 TUNA.py spaces/experiment/pg16.1-epinions-8c32m.json &lt;seed&gt; &lt;hosts&gt;</code>
-          <hr/>
+          <br/>
           <code>python3 mass_reruns_v2.py</code>
         </td>
     </tr>
@@ -187,9 +187,9 @@ Here we provide a brief description of each tuning script. All of the following 
         <td>$320</td>
         <td>
           <code>python3 parallel.py spaces/experiment/pg16.1-tpch-8c32m.json &lt;seed&gt; &lt;hosts&gt;</code>
-          <hr/>
+          <br/>
           <code>python3 TUNA.py spaces/experiment/pg16.1-tpch-8c32m.json &lt;seed&gt; &lt;hosts&gt;</code>
-          <hr/>
+          <br/>
           <code>python3 mass_reruns_v2.py</code>
         </td>
     </tr>
@@ -199,9 +199,9 @@ Here we provide a brief description of each tuning script. All of the following 
         <td>$320</td>
         <td>
           <code>python3 parallel.py spaces/experiment/pg16.1-tpcc-8c32m.json &lt;seed&gt; &lt;hosts&gt;</code>
-          <hr/>
+          <br/>
           <code>python3 TUNA.py spaces/experiment/pg16.1-tpcc-8c32m.json &lt;seed&gt; &lt;hosts&gt;</code>
-          <hr/>
+          <br/>
           <code>python3 mass_reruns_v2.py</code>
         </td>
     </tr>
@@ -211,9 +211,9 @@ Here we provide a brief description of each tuning script. All of the following 
         <td>N/A</td>
         <td>
           <code>python3 parallel.py spaces/experiment/pg16.1-tpcc-c220g5.json &lt;seed&gt; &lt;hosts&gt;</code>
-          <hr/>
+          <br/>
           <code>python3 TUNA.py spaces/experiment/pg16.1-tpcc-c220g5.json &lt;seed&gt; &lt;hosts&gt;</code>
-          <hr/>
+          <br/>
           <code>python3 mass_reruns_v2.py</code>
         </td>
     </tr>
@@ -223,8 +223,10 @@ Here we provide a brief description of each tuning script. All of the following 
         <td>$320</td>
         <td>
           <code>python3 parallel.py spaces/experiment/redis7.2-ycsb-8c32m-latency.json &lt;seed&gt; &lt;hosts&gt;</code>
-          <hr/>
-          <code>python3 TUNA.py spaces/experiment/redis7.2-ycsb-8c32m-latency.json &lt;seed&gt; &lt;hosts&gt;`  &lt;br /&gt; `python3 mass_reruns_v2.py`</code>
+          <br/>
+          <code>python3 TUNA.py spaces/experiment/redis7.2-ycsb-8c32m-latency.json &lt;seed&gt; &lt;hosts&gt;</code>
+          <br/>
+          <code>python3 mass_reruns_v2.py`</code>
         </td>
     </tr>
     <tr>
@@ -233,8 +235,10 @@ Here we provide a brief description of each tuning script. All of the following 
         <td>$320</td>
         <td>
           <code>python3 parallel_gp.py spaces/experiment/pg16.1-tpcc-8c32m.json &lt;seed&gt; &lt;hosts&gt;</code>
-          <hr/>
-          <code>python3 TUNA_gp.py spaces/experiment/pg16.1-tpcc-8c32m.json &lt;seed&gt; &lt;hosts&gt;`  &lt;br /&gt; `python3 mass_reruns_v2.py</code>
+          <br/>
+          <code>python3 TUNA_gp.py spaces/experiment/pg16.1-tpcc-8c32m.json &lt;seed&gt; &lt;hosts&gt;</code>
+          <br/>
+          <code>python3 mass_reruns_v2.py</code>
         </td>
     </tr>
     <tr>
@@ -243,7 +247,7 @@ Here we provide a brief description of each tuning script. All of the following 
         <td>$1400</td>
         <td>
           <code>python3 TUNA.py spaces/experiment/pg16.1-epinions-8c32m.json &lt;seed&gt; &lt;hosts&gt;</code>
-          <hr/>
+          <br/>
           <code> python3 TUNA_no_model.py spaces/experiment/pg16.1-epinions-8c32m.json &lt;seed&gt; &lt;hosts&gt</code>
         </td>
     </tr>
