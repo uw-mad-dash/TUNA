@@ -154,9 +154,7 @@ Here we provide a brief description of each tuning script. All of the following 
         <td>Run parallel tuning runs with a gaussian prior. This is used to compare the rate of convergence in a noisy environment.</td>
         <td>N/A</td>
         <td>
-          <code>
-            python3 parallel_prior.py spaces/experiment/pg16.1-epinions-c220g5.json &lt;seed&gt; &lt;hosts&gt; &lt;noise&gt;
-          </code>
+          <code>python3 parallel_prior.py spaces/experiment/pg16.1-epinions-c220g5.json &lt;seed&gt; &lt;hosts&gt; &lt;noise&gt;</code>
         </td>
     </tr>
     <tr>
@@ -164,17 +162,11 @@ Here we provide a brief description of each tuning script. All of the following 
         <td>Run 10 parallel tuning runs, and 10 runs using TUNA targeting the TPC-C workload on Postgres 16.1 running on Azure. Take the data that is generated from this output and rerun the data on a set of 10 new worker nodes.</td>
         <td>$320</td>
         <td>
-          <code>
-            python3 parallel.py spaces/experiment/pg16.1-epinions-8c32m.json &lt;seed&gt; &lt;hosts&gt;
-          </code>
+          <code>python3 parallel.py spaces/experiment/pg16.1-epinions-8c32m.json &lt;seed&gt; &lt;hosts&gt;</code>
           <hr/>
-          <code>
-            python3 TUNA.py spaces/experiment/pg16.1-epinions-8c32m.json &lt;seed&gt; &lt;hosts&gt;
-          </code>
+          <code>python3 TUNA.py spaces/experiment/pg16.1-epinions-8c32m.json &lt;seed&gt; &lt;hosts&gt;</code>
           <hr/>
-          <code>
-            python3 mass_reruns_v2.py
-          </code>
+          <code>python3 mass_reruns_v2.py</code>
         </td>
     </tr>
     <tr>
@@ -182,17 +174,11 @@ Here we provide a brief description of each tuning script. All of the following 
         <td>Run 10 parallel tuning runs, and 10 runs using TUNA targeting the epinions workload on Postgres 16.1 running on Azure. Take the data that is generated from this output and rerun the data on a set of 10 new worker nodes.</td>
         <td>$320</td>
         <td>
-          <code>
-            python3 parallel.py spaces/experiment/pg16.1-epinions-8c32m.json &lt;seed&gt; &lt;hosts&gt;
-          </code>
+          <code>python3 parallel.py spaces/experiment/pg16.1-epinions-8c32m.json &lt;seed&gt; &lt;hosts&gt;</code>
           <hr/>
-          <code>
-            python3 TUNA.py spaces/experiment/pg16.1-epinions-8c32m.json &lt;seed&gt; &lt;hosts&gt;
-          </code>
+          <code>python3 TUNA.py spaces/experiment/pg16.1-epinions-8c32m.json &lt;seed&gt; &lt;hosts&gt;</code>
           <hr/>
-          <code>
-            python3 mass_reruns_v2.py
-          </code>
+          <code>python3 mass_reruns_v2.py</code>
         </td>
     </tr>
     <tr>
@@ -200,17 +186,11 @@ Here we provide a brief description of each tuning script. All of the following 
         <td>Run 10 parallel tuning runs, and 10 runs using TUNA targeting the TPC-H workload on Postgres 16.1 running on Azure. Take the data that is generated from this output and rerun the data on a set of 10 new worker nodes.on</td>
         <td>$320</td>
         <td>
-          <code>
-            python3 parallel.py spaces/experiment/pg16.1-tpch-8c32m.json &lt;seed&gt; &lt;hosts&gt;
-          </code>
+          <code>python3 parallel.py spaces/experiment/pg16.1-tpch-8c32m.json &lt;seed&gt; &lt;hosts&gt;</code>
           <hr/>
-          <code>
-            python3 TUNA.py spaces/experiment/pg16.1-tpch-8c32m.json &lt;seed&gt; &lt;hosts&gt;
-          </code>
+          <code>python3 TUNA.py spaces/experiment/pg16.1-tpch-8c32m.json &lt;seed&gt; &lt;hosts&gt;</code>
           <hr/>
-          <code>
-            python3 mass_reruns_v2.py
-          </code>
+          <code>python3 mass_reruns_v2.py</code>
         </td>
     </tr>
     <tr>
@@ -218,17 +198,11 @@ Here we provide a brief description of each tuning script. All of the following 
         <td>Identical to Figure 9a, however running on a different region.</td>
         <td>$320</td>
         <td>
-          <code>
-            python3 parallel.py spaces/experiment/pg16.1-tpcc-8c32m.json &lt;seed&gt; &lt;hosts&gt;
-          </code>
+          <code>python3 parallel.py spaces/experiment/pg16.1-tpcc-8c32m.json &lt;seed&gt; &lt;hosts&gt;</code>
           <hr/>
-          <code>
-            python3 TUNA.py spaces/experiment/pg16.1-tpcc-8c32m.json &lt;seed&gt; &lt;hosts&gt;
-          </code>
+          <code>python3 TUNA.py spaces/experiment/pg16.1-tpcc-8c32m.json &lt;seed&gt; &lt;hosts&gt;</code>
           <hr/>
-          <code>
-            python3 mass_reruns_v2.py
-          </code>
+          <code>python3 mass_reruns_v2.py</code>
         </td>
     </tr>
     <tr>
@@ -236,17 +210,11 @@ Here we provide a brief description of each tuning script. All of the following 
         <td>Identical to Figure 9a, however running on CloudLab `c220g5` nodes rather than on Azure.</td>
         <td>N/A</td>
         <td>
-          <code>
-            python3 parallel.py spaces/experiment/pg16.1-tpcc-c220g5.json &lt;seed&gt; &lt;hosts&gt;
-          </code>
+          <code>python3 parallel.py spaces/experiment/pg16.1-tpcc-c220g5.json &lt;seed&gt; &lt;hosts&gt;</code>
           <hr/>
-          <code>
-            python3 TUNA.py spaces/experiment/pg16.1-tpcc-c220g5.json &lt;seed&gt; &lt;hosts&gt;
-          </code>
+          <code>python3 TUNA.py spaces/experiment/pg16.1-tpcc-c220g5.json &lt;seed&gt; &lt;hosts&gt;</code>
           <hr/>
-          <code>
-            python3 mass_reruns_v2.py
-          </code>
+          <code>python3 mass_reruns_v2.py</code>
         </td>
     </tr>
     <tr>
@@ -254,13 +222,9 @@ Here we provide a brief description of each tuning script. All of the following 
         <td>Run 10 parallel tuning runs, and 10 runs using TUNA targeting the YCSB-C workload on redis running on Azure. Take the data that is generated from this output and rerun the data on a set of 10 new worker nodes.</td>
         <td>$320</td>
         <td>
-          <code>
-            python3 parallel.py spaces/experiment/redis7.2-ycsb-8c32m-latency.json &lt;seed&gt; &lt;hosts&gt;
-          </code>
+          <code>python3 parallel.py spaces/experiment/redis7.2-ycsb-8c32m-latency.json &lt;seed&gt; &lt;hosts&gt;</code>
           <hr/>
-          <code>
-            python3 TUNA.py spaces/experiment/redis7.2-ycsb-8c32m-latency.json &lt;seed&gt; &lt;hosts&gt;`  &lt;br /&gt; `python3 mass_reruns_v2.py`
-          </code>
+          <code>python3 TUNA.py spaces/experiment/redis7.2-ycsb-8c32m-latency.json &lt;seed&gt; &lt;hosts&gt;`  &lt;br /&gt; `python3 mass_reruns_v2.py`</code>
         </td>
     </tr>
     <tr>
@@ -268,13 +232,9 @@ Here we provide a brief description of each tuning script. All of the following 
         <td>Identical to Figure 9a, however using a gaussian process optimizer rather than a random forest optimizer (SMAC).</td>
         <td>$320</td>
         <td>
-          <code>
-            python3 parallel_gp.py spaces/experiment/pg16.1-tpcc-8c32m.json &lt;seed&gt; &lt;hosts&gt;
-          </code>
+          <code>python3 parallel_gp.py spaces/experiment/pg16.1-tpcc-8c32m.json &lt;seed&gt; &lt;hosts&gt;</code>
           <hr/>
-          <code>
-            python3 TUNA_gp.py spaces/experiment/pg16.1-tpcc-8c32m.json &lt;seed&gt; &lt;hosts&gt;`  &lt;br /&gt; `python3 mass_reruns_v2.py
-          </code>
+          <code>python3 TUNA_gp.py spaces/experiment/pg16.1-tpcc-8c32m.json &lt;seed&gt; &lt;hosts&gt;`  &lt;br /&gt; `python3 mass_reruns_v2.py</code>
         </td>
     </tr>
     <tr>
@@ -282,13 +242,10 @@ Here we provide a brief description of each tuning script. All of the following 
         <td>Identical to Figure 9a, with the outlier detector ablated.</td>
         <td>$1400</td>
         <td>
-          <code>
-            python3 TUNA.py spaces/experiment/pg16.1-epinions-8c32m.json &lt;seed&gt; &lt;hosts&gt;
-          </code>
+          <code>python3 TUNA.py spaces/experiment/pg16.1-epinions-8c32m.json &lt;seed&gt; &lt;hosts&gt;</code>
           <hr/>
-          <code> 
-            python3 TUNA_no_model.py spaces/experiment/pg16.1-epinions-8c32m.json &lt;seed&gt; &lt;hosts&gt
-          </code></td>
+          <code> python3 TUNA_no_model.py spaces/experiment/pg16.1-epinions-8c32m.json &lt;seed&gt; &lt;hosts&gt</code>
+        </td>
     </tr>
 </table>
 
