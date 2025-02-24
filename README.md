@@ -1,5 +1,7 @@
 # TUNA: Tuning Unstable and Noisy Cloud Applications
 
+[![DOI](https://zenodo.org/badge/927388945.svg)](https://doi.org/10.5281/zenodo.14872390)
+
 This repository contains the source code used for "TUNA: <ins>T</ins>uning <ins>U</ins>nstable and <ins>N</ins>oisy Cloud <ins>A</ins>pplications" (to appear in [EuroSys'25](https://2025.eurosys.org/accepted-papers.html#pagetop)).
 TUNA is a sampling methodology that uses a few key insights to improve the quality of configurations found during system autotuning.
 In particular, TUNA uses
