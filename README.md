@@ -1,5 +1,7 @@
 # TUNA: Tuning Unstable and Noisy Cloud Applications
 
+[![DOI](https://zenodo.org/badge/927388945.svg)](https://doi.org/10.5281/zenodo.14872390)
+
 This repository contains the source code used for "TUNA: <ins>T</ins>uning <ins>U</ins>nstable and <ins>N</ins>oisy Cloud <ins>A</ins>pplications" (to appear in [EuroSys'25](https://2025.eurosys.org/accepted-papers.html#pagetop)).
 TUNA is a sampling methodology that uses a few key insights to improve the quality of configurations found during system autotuning.
 In particular, TUNA uses
@@ -11,12 +13,28 @@ This code can be used to run the main experimental results from our paper. Users
 
 ## Fetching Code
 
-To pull the code, we use a submodules for library dependencies. These commands should pull all the necessary code.
+To pull the code, we use submodules for library dependencies. These commands should pull all the necessary code.
 
 ```sh
 git clone git@github.com:uw-mad-dash/TUNA.git
 git submodule update --init --recursive
 ```
+
+### Dependencies
+This project has been tested on Ubuntu 20, however we believe that it should work on most versions of linux.
+We use the following dependencies:
+
+- `python3.11`
+- `miniconda`
+- `docker`
+- `java 21`
+- `fio`
+- `stress-ng`
+- `linux-tools`
+
+There are additional python library dependencies listed in `/src/processing/requirements.txt`
+
+Both the python libraries and the dependencies can be installed using scripts in `/src/processing`. For the scripts to run properly, the `mlos` conda environment must be activated.
 
 ## Source Code Structure
 
@@ -129,21 +147,120 @@ Here we provide a brief description of each tuning script. All of the following 
 - `TUNA_gp.py`: A script to run TUNA with the optimizer switched out for a gaussian process model
 - `TUNA_no_model.py`:The full TUNA sampling methodology without the noise adjustor model.
 - `TUNA_no_outlier.py`: The full TUNA sampling methodology without the outlier detection.
-- `TUNA.py`: The normal TUNA sampling script that is used throughout the paper.
+- `TUNA.py`: The normal TUNA sampling script that is used tbroughout the paper.
 
 ### Scripts used for Reproducing Selected Experiments
 
-|           | Description                                                                                                                                                                                                                 | Estimated Azure Cost | Tuning Commands                                                                                                                                                                                                       |
-|-----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Figure 3  | Run parallel tuning runs with a gaussian prior. This is used to compare the rate of convergence in a noisy environment.                                                                                                     | N/A                  | `python3 parallel_prior.py spaces/experiment/pg16.1-epinions-c220g5.json <seed> <hosts> <noise>`                                                                                                                      |
-| Figure 9a | Run 10 parallel tuning runs, and 10 runs using TUNA targeting the TPC-C workload on Postgres 16.1 running on Azure. Take the data that is generated from this output and rerun the data on a set of 10 new worker nodes.    | $320                 | `python3 parallel.py spaces/experiment/pg16.1-tpcc-8c32m.json <seed> <hosts>`<br /> `python3 TUNA.py spaces/experiment/pg16.1-tpcc-8c32m.json <seed> <hosts>`  <br /> `python3 mass_reruns_v2.py`                     |
-| Figure 9b | Run 10 parallel tuning runs, and 10 runs using TUNA targeting the epinions workload on Postgres 16.1 running on Azure. Take the data that is generated from this output and rerun the data on a set of 10 new worker nodes. | $320                 | `python3 parallel.py spaces/experiment/pg16.1-epinions-8c32m.json <seed> <hosts>`<br /> `python3 TUNA.py spaces/experiment/pg16.1-epinions-8c32m.json <seed> <hosts>`  <br /> `python3 mass_reruns_v2.py`             |
-| Figure 9c | Run 10 parallel tuning runs, and 10 runs using TUNA targeting the TPC-H workload on Postgres 16.1 running on Azure. Take the data that is generated from this output and rerun the data on a set of 10 new worker nodes.on  | $320                 | `python3 parallel.py spaces/experiment/pg16.1-tpch-8c32m.json <seed> <hosts>`<br /> `python3 TUNA.py spaces/experiment/pg16.1-tpch-8c32m.json <seed> <hosts>`  <br /> `python3 mass_reruns_v2.py`                     |
-| Figure 10 | Identical to Figure 9a, however running on a different region.                                                                                                                                                              | $320                 | `python3 parallel.py spaces/experiment/pg16.1-tpcc-8c32m.json <seed> <hosts>`<br /> `python3 TUNA.py spaces/experiment/pg16.1-tpcc-8c32m.json <seed> <hosts>`  <br /> `python3 mass_reruns_v2.py`                     |
-| Figure 11 | Identical to Figure 9a, however running on CloudLab `c220g5` nodes rather than on Azure.                                                                                                                                    | N/A                  | `python3 parallel.py spaces/experiment/pg16.1-tpcc-c220g5.json <seed> <hosts>`<br /> `python3 TUNA.py spaces/experiment/pg16.1-tpcc-c220g5.json <seed> <hosts>`  <br /> `python3 mass_reruns_v2.py`                   |
-| Figure 12 | Run 10 parallel tuning runs, and 10 runs using TUNA targeting the YCSB-C workload on redis running on Azure. Take the data that is generated from this output and rerun the data on a set of 10 new worker nodes.           | $320                 | `python3 parallel.py spaces/experiment/redis7.2-ycsb-8c32m-latency.json <seed> <hosts>`<br /> `python3 TUNA.py spaces/experiment/redis7.2-ycsb-8c32m-latency.json <seed> <hosts>`  <br /> `python3 mass_reruns_v2.py` |
-| Figure 14 | Identical to Figure 9a, however using a gaussian process optimizer rather than a random forest optimizer (SMAC).                                                                                                            | $320                 | `python3 parallel_gp.py spaces/experiment/pg16.1-tpcc-8c32m.json <seed> <hosts>`<br /> `python3 TUNA_gp.py spaces/experiment/pg16.1-tpcc-8c32m.json <seed> <hosts>`  <br /> `python3 mass_reruns_v2.py`               |
-| Figure 16 | Identical to Figure 9a, with the outlier detector ablated.                                                                                                                                                                  | $1400                | `python3 TUNA.py spaces/experiment/pg16.1-epinions-8c32m.json <seed> <hosts>`<br /> `python3 TUNA_no_model.py spaces/experiment/pg16.1-epinions-8c32m.json <seed> <hosts>`  <br />                                    |
+<table>
+    <tr>
+        <td></td>
+        <td>Description</td>
+        <td>Estimated Azure Cost</td>
+        <td>Tuning Commands</td>
+    </tr>
+    <tr>
+        <td>Figure 3</td>
+        <td>Run parallel tuning runs with a gaussian prior. This is used to compare the rate of convergence in a noisy environment.</td>
+        <td>N/A</td>
+        <td>
+          <code>python3 parallel_prior.py spaces/experiment/pg16.1-epinions-c220g5.json &lt;seed&gt; &lt;hosts&gt; &lt;noise&gt;</code>
+        </td>
+    </tr>
+    <tr>
+        <td>Figure 9a</td>
+        <td>Run 10 parallel tuning runs, and 10 runs using TUNA targeting the TPC-C workload on Postgres 16.1 running on Azure. Take the data that is generated from this output and rerun the data on a set of 10 new worker nodes.</td>
+        <td>$320</td>
+        <td>
+          <code>python3 parallel.py spaces/experiment/pg16.1-epinions-8c32m.json &lt;seed&gt; &lt;hosts&gt;</code>
+          <br/><br/>
+          <code>python3 TUNA.py spaces/experiment/pg16.1-epinions-8c32m.json &lt;seed&gt; &lt;hosts&gt;</code>
+          <br/><br/>
+          <code>python3 mass_reruns_v2.py</code>
+        </td>
+    </tr>
+    <tr>
+        <td>Figure 9b</td>
+        <td>Run 10 parallel tuning runs, and 10 runs using TUNA targeting the epinions workload on Postgres 16.1 running on Azure. Take the data that is generated from this output and rerun the data on a set of 10 new worker nodes.</td>
+        <td>$320</td>
+        <td>
+          <code>python3 parallel.py spaces/experiment/pg16.1-epinions-8c32m.json &lt;seed&gt; &lt;hosts&gt;</code>
+          <br/><br/>
+          <code>python3 TUNA.py spaces/experiment/pg16.1-epinions-8c32m.json &lt;seed&gt; &lt;hosts&gt;</code>
+          <br/><br/>
+          <code>python3 mass_reruns_v2.py</code>
+        </td>
+    </tr>
+    <tr>
+        <td>Figure 9c</td>
+        <td>Run 10 parallel tuning runs, and 10 runs using TUNA targeting the TPC-H workload on Postgres 16.1 running on Azure. Take the data that is generated from this output and rerun the data on a set of 10 new worker nodes.on</td>
+        <td>$320</td>
+        <td>
+          <code>python3 parallel.py spaces/experiment/pg16.1-tpch-8c32m.json &lt;seed&gt; &lt;hosts&gt;</code>
+          <br/><br/>
+          <code>python3 TUNA.py spaces/experiment/pg16.1-tpch-8c32m.json &lt;seed&gt; &lt;hosts&gt;</code>
+          <br/><br/>
+          <code>python3 mass_reruns_v2.py</code>
+        </td>
+    </tr>
+    <tr>
+        <td>Figure 10</td>
+        <td>Identical to Figure 9a, however running on a different region.</td>
+        <td>$320</td>
+        <td>
+          <code>python3 parallel.py spaces/experiment/pg16.1-tpcc-8c32m.json &lt;seed&gt; &lt;hosts&gt;</code>
+          <br/><br/>
+          <code>python3 TUNA.py spaces/experiment/pg16.1-tpcc-8c32m.json &lt;seed&gt; &lt;hosts&gt;</code>
+          <br/><br/>
+          <code>python3 mass_reruns_v2.py</code>
+        </td>
+    </tr>
+    <tr>
+        <td>Figure 11</td>
+        <td>Identical to Figure 9a, however running on CloudLab `c220g5` nodes rather than on Azure.</td>
+        <td>N/A</td>
+        <td>
+          <code>python3 parallel.py spaces/experiment/pg16.1-tpcc-c220g5.json &lt;seed&gt; &lt;hosts&gt;</code>
+          <br/><br/>
+          <code>python3 TUNA.py spaces/experiment/pg16.1-tpcc-c220g5.json &lt;seed&gt; &lt;hosts&gt;</code>
+          <br/><br/>
+          <code>python3 mass_reruns_v2.py</code>
+        </td>
+    </tr>
+    <tr>
+        <td>Figure 12</td>
+        <td>Run 10 parallel tuning runs, and 10 runs using TUNA targeting the YCSB-C workload on redis running on Azure. Take the data that is generated from this output and rerun the data on a set of 10 new worker nodes.</td>
+        <td>$320</td>
+        <td>
+          <code>python3 parallel.py spaces/experiment/redis7.2-ycsb-8c32m-latency.json &lt;seed&gt; &lt;hosts&gt;</code>
+          <br/><br/>
+          <code>python3 TUNA.py spaces/experiment/redis7.2-ycsb-8c32m-latency.json &lt;seed&gt; &lt;hosts&gt;</code>
+          <br/><br/>
+          <code>python3 mass_reruns_v2.py`</code>
+        </td>
+    </tr>
+    <tr>
+        <td>Figure 14</td>
+        <td>Identical to Figure 9a, however using a gaussian process optimizer rather than a random forest optimizer (SMAC).</td>
+        <td>$320</td>
+        <td>
+          <code>python3 parallel_gp.py spaces/experiment/pg16.1-tpcc-8c32m.json &lt;seed&gt; &lt;hosts&gt;</code>
+          <br/><br/>
+          <code>python3 TUNA_gp.py spaces/experiment/pg16.1-tpcc-8c32m.json &lt;seed&gt; &lt;hosts&gt;</code>
+          <br/><br/>
+          <code>python3 mass_reruns_v2.py</code>
+        </td>
+    </tr>
+    <tr>
+        <td>Figure 16</td>
+        <td>Identical to Figure 9a, with the outlier detector ablated.</td>
+        <td>$1400</td>
+        <td>
+          <code>python3 TUNA.py spaces/experiment/pg16.1-epinions-8c32m.json &lt;seed&gt; &lt;hosts&gt;</code>
+          <br/><br/>
+          <code> python3 TUNA_no_model.py spaces/experiment/pg16.1-epinions-8c32m.json &lt;seed&gt; &lt;hosts&gt</code>
+        </td>
+    </tr>
+</table>
 
 ## See Also
 
