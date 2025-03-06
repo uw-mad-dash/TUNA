@@ -13,6 +13,7 @@ Deploying these in environments that are not representative of their tuning envi
 Rather than simply used for deployment (which as noted, is a limited set), by releasing this data we intend to allow further research into topics such as:
 
 - advanced search methodology for improved convergence rates,
+  - e.g., alternative aggregation policies to `min`
 - configuration similarity comparison and visualization,
 - etc.
 
