@@ -59,10 +59,10 @@ TUNA also uses [Nautilus](https://dl.acm.org/doi/pdf/10.1145/3650203.3663336) to
     - `params`: Machine characteristics
 - `sample_configs`: contains sample tuning runs for the data that is processed in the paper. Note these are the values seen during tuning, not deployment. This also Includes a short example notebook on how to read and print an sample convergence curve.
   - `azure`: Configurations that were found in our default azure region (south central us)
-    - `<target system>`: The Ssytem under Test
+    - `<target system>`: The System under Test
       - `<target_workload>`: The workload that is being targeted
       - `tpcc_gp`: TPC-C tuning runs that were run with a gaussian process optimizer
-  - `azure_cus`: Configurations found in the central us region
+  - `azure_centralus`: Configurations found in the central us region
     - `...`
   - `cloudlab`: Configurations found on cloudlab using `c220g5` nodes
     - `...`
